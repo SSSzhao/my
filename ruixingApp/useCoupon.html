@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			body{
+				background-color: #f5f5f5;
+			}
+			header{
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: 6vh;
+				padding: 0 5vw;
+				border: 1px solid rgb(240, 240, 240);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: #FFFFFF;
+				z-index: 99;
+			}
+			header a{
+				display: inline-block;
+				width: 4vw;
+				position: absolute;
+			}
+			header a img{
+				width: 100%;
+			}
+			header h1{
+				flex: 1;
+				text-align: center;
+				font-size: 4vw;
+			}
+			.warn{
+				position: fixed;
+				top: 6vh;
+				left: 0;
+				right: 0;
+				background-color: #F3F8FD;
+				line-height: 5vh;
+				text-align: center;
+				font-size: 3.6vw;
+				color: rgba(128, 128, 128, 1);
+				z-index: 99;
+			}
+			.warn span{
+				color: rgba(144, 192, 239, 1);
+			}
+			ul{
+				padding: 11vh 5vw 9vh;
+			}
+			ul li{
+				height: 18vh;
+				margin: 1vh 0;
+				box-sizing: border-box;
+				padding: 1vw;
+				background-color: #FFFFFF;
+			}
+			ul li .blue{
+				height: 100%;
+				border: 1px solid rgba(144, 192, 239, 1);
+				box-sizing: border-box;
+				padding: 1vw;
+			}
+			ul li .blue .gray{
+				height: 100%;
+				border: 1px solid rgba(241, 241, 241, 1);
+				box-sizing: border-box;
+				padding: 0 5vw;
+				display: flex;
+				align-items: center;
+			}
+			ul li .left{
+				height: 10vh;
+				line-height: 10vh;
+				border-right: 1px dashed rgba(240, 240, 240, 1);
+				padding-right: 3vw;
+				font-size: 6vw;
+				color: rgba(144, 192, 239, 1);
+			}
+			ul li .left span{
+				font-size: 9vw;
+			}
+			ul li .right{
+				width: 70%;
+				padding-left: 2.4vw;
+				position: relative;
+				font-size: 3.4vw;
+				color: rgba(166, 166, 166, 1);
+			}
+			ul li .right .title{
+				font-size: 4.4vw;
+				color: rgb(56,56,56);
+			}
+			ul li .right .time{
+				margin: 1vh 0 0.6vh;
+			}
+			ul li .right .role{
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+			}
+			ul li .right .role img{
+				width: 6vw;
+				transform: rotate(90deg);
+				opacity: .4;
+			}
+			ul li .right .circle{
+				position: absolute;
+				top: 30%;
+				right: 0;
+				right: 0vw;
+				width: 5vw;
+				height: 5vw;
+				border: 1px solid rgba(229, 229, 229, 1);
+				border-radius: 50%;
+			}
+			ul li .right .checked{
+				width: 5vw;
+				height: 5vw;
+				border-color: rgba(0,85,255,0);
+				background-color: rgba(0,85,255,.7);
+				text-align: center;
+			}
+			ul li .right .checked::after{
+				content: "✔";
+				font-size: 4vw;
+				color: #FFFFFF;
+			}
+			.bottom{
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 9vh;
+				background-color: #FFFFFF;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.bottom .btn{
+				display: block;
+				width: 90%;
+				height: 5vh;
+				background-color: rgba(144, 192, 239, 1);
+				border-radius: 6px;
+				line-height: 5.4vh;
+				text-align: center;
+				font-size: 4.2vw;
+				color: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="shopConfirmOrder.html"><img src="./img/quit.svg" ></a>
+			<h1>选择优惠券</h1>
+		</header>
+		<p class="warn">可用优惠<span>(<span class="number"></span>张)</span></p>
+		<ul class="coupons">
+		</ul>
+		<div class="bottom">
+			<a class="btn" href="javascript:;">保存</a>
+		</div>
+		<script>
+			let data = null
+			$.get({
+				url: 'data/coupon.json',
+				dataType: 'json',
+				success: function(res) {
+					data = res
+					var coupons = ''
+					$('.number').text(res.length)
+					$(res).each(function(index,value) {
+						$('.coupons').html(function() {
+							coupons +=
+								`
+								<li>
+									<div class="blue">
+										<div class="gray">
+											<div class="left">
+												<span>${value.discount.substring(0,1)}</span>${value.discount.substring(1,3)}折
+											</div>
+											<div class="right">
+												<p class="title">${value.title}</p>
+												<p class="time">有效期至${value.deadline}</p>
+												<p class="role">使用规则<img src="img/skip3.svg"></p>
+												<div class="circle"></div>
+											</div>
+										</div>
+									</div>
+								</li>
+								`
+							return coupons
+						})
+					})
+				}
+			})
+			
+			let couponInfo = {
+				discount: 0,
+				title: "",
+				type: []
+			}
+			
+			$(document).ready(function() {
+				$('.coupons').on('click','.circle',function() {
+					$(this).toggleClass('checked')
+					var self = this
+					if($('.checked').length > 1){
+						plus.nativeUI.alert("只能选择一张优惠券哦!", function(){
+							$(self).removeClass('checked')
+						}, "", "确认");
+					}
+				})
+				$('.btn').click(function() {
+					plus.webview.open('shopConfirmOrder2.html','',{},'slide-in-left');
+					if($('.checked').length === 0){
+						localStorage.setItem('couponInfo','')
+						return
+					}
+					var index = $('.checked').parents('li').index()
+					var value = data[index]
+					couponInfo.discount = value.discount
+					couponInfo.title = value.title
+					couponInfo.type = value.type
+					var json = JSON.stringify(couponInfo)
+					localStorage.setItem('couponInfo',json)
+				})
+			})
+		</script>
+	</body>
+</html>

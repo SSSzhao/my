@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			body{
+				background-color: #f5f5f5;
+			}
+			header{
+				height: 6vh;
+				padding: 0 5vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: #FFFFFF;
+				border-bottom: 1px solid rgb(240,240,240);
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+			}
+			header>a{
+				display: inline-block;
+				width: 4vw;
+			}
+			header a img{
+				width: 100%;
+			}
+			header div{
+				margin-left: 5vw;
+				display: inline-flex;
+				justify-content: space-between;
+				height: 3vh;
+				border: 1px solid rgba(136, 175, 213, 1);
+				border-radius: 6px;
+				text-align: center;
+				font-size: 3.6vw;
+			}
+			header div a{
+				display: block;
+				width: 20vw;
+				line-height: 3.4vh;
+				text-align: center;
+				color: rgba(136, 175, 213, 1);
+			}
+			header div .active{
+				background-color: rgba(136, 175, 213, 1);
+				color: #FFFFFF;
+			}
+			header span{
+				font-size: 3.2vw;
+				display: inline-flex;
+				align-items: center;
+				color: rgba(56, 56, 56, 1);
+			}
+			header span img{
+				width: 5vw;
+			}
+			.content {
+				padding-top: 6vh;
+				background-color: #FFFFFF;
+				color: rgb(56,56,56);
+			}
+			.content .list{
+				padding: 2vh 0 1.5vh;
+				width: 90%;
+				margin: 0 auto;
+				border-bottom: 1px solid rgb(240,240,240);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.content .list .left{
+				width: 60vw;
+				font-size: 3vw;
+			}
+			.content .list .left .title{
+				font-size: 4vw;
+				line-height: 4vh;
+			}
+			.content .list .left .time{
+				margin-bottom: 0.2vh;
+			}
+			.content .list .left p{
+				display: flex;
+				align-items: center;
+			}
+			.content .list .left img{
+				width: 3.6vw;
+				margin-right: 1vw;
+			}
+			.content .list .right p{
+				text-align: right;
+				font-size: 3.8vw;
+			}
+			.content .list .right a{
+				display: inline-flex;
+				align-items: center;
+				color: rgba(85, 122, 157, 1);
+				font-size: 3.4vw;
+			}
+			.content .list .right img{
+				width: 4.4vw;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="shopConfirmOrder.html"><img src="./img/quit.svg" ></a>
+			<div>
+				<a class="active" href="storeByMe.html">门店自提</a>
+				<a href="addressChoose.html">送货上门</a>
+			</div>
+			<span>北京<img src="img/down.svg"></span>
+		</header>
+		<div class="content">
+			<div class="list">
+				<div class="left">
+					<p class="title">青年汇店(No.1795)</p>
+					<p class="time"><img src="./img/time.svg">07:00 - 20:00</p>
+					<p class="address"><img src="./img/address.svg">朝阳区朝阳北路青年汇102号楼一层123室</p>
+				</div>
+				<div class="right">
+					<p>55m</p>
+					<a href="storeDetail.html">查看详情<img src="./img/skip3.svg"></a>
+				</div>
+			</div>
+			<div class="list">
+				<div class="left">
+					<p class="title">远策科技中心店(No.1583)</p>
+					<p class="time"><img src="./img/time.svg">07:00 - 20:00</p>
+					<p class="address"><img src="./img/address.svg">朝阳区黄杉木店路116号远策科技中心一层A05-1号</p>
+				</div>
+				<div class="right">
+					<p>1.0km</p>
+					<a href="javascript:;">查看详情<img src="./img/skip3.svg"></a>
+				</div>
+			</div>
+			<div class="list">
+				<div class="left">
+					<p class="title">新城市广场店(No.1353)</p>
+					<p class="time"><img src="./img/time.svg">07:00 - 20:00</p>
+					<p class="address"><img src="./img/address.svg">朝阳区十里堡乙2号院5号楼新城市广场地下一层5101-B102A号</p>
+				</div>
+				<div class="right">
+					<p>1.2km</p>
+					<a href="javascript:;">查看详情<img src="./img/skip3.svg"></a>
+				</div>
+			</div>
+			<div class="list">
+				<div class="left">
+					<p class="title">达美中心店(No.0055)</p>
+					<p class="time"><img src="./img/time.svg">07:00 - 20:00</p>
+					<p class="address"><img src="./img/address.svg">朝阳区朝青年路7号院达美中心1号楼一层大堂</p>
+				</div>
+				<div class="right">
+					<p>1.6km</p>
+					<a href="javascript:;">查看详情<img src="./img/skip3.svg"></a>
+				</div>
+			</div>
+			<div class="list">
+				<div class="left">
+					<p class="title">四惠卓明店(No.0030)</p>
+					<p class="time"><img src="./img/time.svg">07:00 - 20:00</p>
+					<p class="address"><img src="./img/address.svg">朝阳区高碑店河南街1069号卓明大厦一层大堂</p>
+				</div>
+				<div class="right">
+					<p>1.8km</p>
+					<a href="javascript:;">查看详情<img src="./img/skip3.svg"></a>
+				</div>
+			</div>
+			<div class="list">
+				<div class="left">
+					<p class="title">青年汇店(No.1795)</p>
+					<p class="time"><img src="./img/time.svg">07:00 - 20:00</p>
+					<p class="address"><img src="./img/address.svg">朝阳区朝阳北路青年汇102号楼一层123室</p>
+				</div>
+				<div class="right">
+					<p>1.9km</p>
+					<a href="javascript:;">查看详情<img src="./img/skip3.svg"></a>
+				</div>
+			</div>
+			<div class="list">
+				<div class="left">
+					<p class="title">远策科技中心店(No.1583)</p>
+					<p class="time"><img src="./img/time.svg">07:00 - 20:00</p>
+					<p class="address"><img src="./img/address.svg">朝阳区黄杉木店路116号远策科技中心一层A05-1号</p>
+				</div>
+				<div class="right">
+					<p>2.0km</p>
+					<a href="javascript:;">查看详情<img src="./img/skip3.svg"></a>
+				</div>
+			</div>
+			<div class="list">
+				<div class="left">
+					<p class="title">新城市广场店(No.1353)</p>
+					<p class="time"><img src="./img/time.svg">07:00 - 20:00</p>
+					<p class="address"><img src="./img/address.svg">朝阳区十里堡乙2号院5号楼新城市广场地下一层5101-B102A号</p>
+				</div>
+				<div class="right">
+					<p>2.2km</p>
+					<a href="javascript:;">查看详情<img src="./img/skip3.svg"></a>
+				</div>
+			</div>
+			<div class="list">
+				<div class="left">
+					<p class="title">达美中心店(No.0055)</p>
+					<p class="time"><img src="./img/time.svg">07:00 - 20:00</p>
+					<p class="address"><img src="./img/address.svg">朝阳区朝青年路7号院达美中心1号楼一层大堂</p>
+				</div>
+				<div class="right">
+					<p>2.6km</p>
+					<a href="javascript:;">查看详情<img src="./img/skip3.svg"></a>
+				</div>
+			</div>
+			<div class="list">
+				<div class="left">
+					<p class="title">四惠卓明店(No.0030)</p>
+					<p class="time"><img src="./img/time.svg">07:00 - 20:00</p>
+					<p class="address"><img src="./img/address.svg">朝阳区高碑店河南街1069号卓明大厦一层大堂</p>
+				</div>
+				<div class="right">
+					<p>2.8km</p>
+					<a href="javascript:;">查看详情<img src="./img/skip3.svg"></a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

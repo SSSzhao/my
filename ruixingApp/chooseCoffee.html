@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/public.css" />
+		<script src="js/jquery.min.js"></script>
+		<style type="text/css">
+			body {
+				background-color: #FFFFFF;
+			}
+
+			.mui-slider {
+				top: 6vh;
+				background-color: #F1F1F1;
+			}
+
+			.mui-slider img {
+				height: 100%;
+			}
+
+			.content {
+				padding-top: 6vh;
+				display: flex;
+				align-items: flex-start;
+			}
+
+			.content .left {
+				width: 24%;
+			}
+
+			.content .left li {
+				height: 6vh;
+				line-height: 6vh;
+				box-sizing: border-box;
+				text-align: center;
+				font-size: 14px;
+				color: rgba(80, 80, 80, 1);
+				background-color: rgba(240, 240, 240, 1);
+				border-left: 2px solid transparent;
+				border-bottom: 1px solid rgba(230, 230, 230, 1);
+				position: relative;
+			}
+
+			.content .left li span {
+				padding: 0.2vh 0.4vw 0;
+				line-height: 1.4vh;
+				font-size: 2.6vw;
+				color: #FFFFFF;
+				position: absolute;
+				top: 0;
+				right: 0;
+				background-color: rgba(255, 129, 2, 1);
+			}
+
+			.content .left .active {
+				background-color: #FFFFFF;
+				border-left-color: rgba(136, 175, 213, 1);
+				font-weight: bold;
+			}
+
+			.content .right {
+				padding: 1.4vh;
+			}
+
+			.content .right ul {
+				width: 100%;
+				height: 68.5vh;
+				overflow: scroll;
+				position: relative;
+			}
+
+			.content .right ul::-webkit-scrollbar {
+				width: 0;
+			}
+
+			.content .right ul .p1 {
+				width: 100%;
+				font-weight: bold;
+				color: rgb(56, 56, 56);
+				position: relative;
+				min-height: 2.8vh;
+			}
+
+			.content .right ul .p1 strong {
+				background-color: #fff;
+				padding-right: 2vw;
+				position: absolute;
+				z-index: 1;
+			}
+
+			.content .right ul .p1::after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 1px;
+				background-color: rgb(240, 240, 240);
+				position: absolute;
+				top: 1.2vh;
+				right: 0;
+			}
+
+			.content .right ul li {
+				display: flex;
+				justify-content: space-between;
+				padding-bottom: 2vh;
+				margin: 1vh 0;
+				border-bottom: 1px solid rgb(240, 240, 240);
+			}
+
+			.content .right ul div li:last-child {
+				margin-bottom: 20px;
+				padding-bottom: 0;
+				border-bottom: 0;
+			}
+
+			.content .right ul li .img {
+				width: 18vw;
+				height: 18vw;
+				border-radius: 5px;
+				display: flex;
+				justify-content: center;
+				overflow: hidden;
+				position: relative;
+			}
+
+			.content .right ul li .img img {
+				height: 100%;
+			}
+
+			.content .right ul li .img span {
+				position: absolute;
+				bottom: 0.5vh;
+				right: 0;
+				padding: 0 0.5vw;
+				height: 2vh;
+				text-align: center;
+				line-height: 2.4vh;
+				border-radius: 2px;
+				color: #FFFFFF;
+				font-size: 2.4vw;
+				background-color: rgba(255, 129, 2, 1);
+			}
+
+			.content .right ul li .text {
+				flex: 1;
+				margin-left: 2vw;
+			}
+
+			.content .right ul li .text h3 {
+				font-size: 14px;
+			}
+
+			.content .right ul li .text .detail {
+				font-size: 10px;
+				line-height: 120%;
+			}
+
+			.content .right ul li .text .price {
+				line-height: 0%;
+				color: rgba(56, 56, 56, 1);
+			}
+
+			.content .right ul li>img {
+				align-self: flex-end;
+				width: 6vw;
+			}
+
+			.content .right ul .p2 {
+				margin: 0 0 2vh;
+				position: relative;
+				min-height: 4.8vh;
+			}
+
+			.content .right ul .p2 strong {
+				display: block;
+				padding: 1vw 0;
+				color: rgb(56, 56, 56);
+				font-size: 3.6vw;
+				line-height: 100%;
+			}
+
+			.content .right ul .p2 span {
+				font-size: 2.8vw;
+				background-color: #FFF;
+				padding-right: 2vw;
+				position: absolute;
+				z-index: 1;
+			}
+
+			.content .right ul .p2::after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 1px;
+				background-color: rgb(240, 240, 240);
+				position: absolute;
+				top: 74%;
+				right: 0;
+			}
+
+			nav {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 7vh;
+				background-color: #FFFFFF;
+				box-sizing: border-box;
+				padding: 0 10.6vw;
+				border-top: 1px solid rgb(217, 217, 217);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				z-index: 99;
+			}
+
+			nav a {
+				display: inline-block;
+				width: 4vw;
+				font-size: 2vw;
+				color: rgb(43, 76, 126);
+				text-align: center;
+			}
+
+			nav a img {
+				width: 100%;
+				margin-top: 5px;
+			}
+
+			nav a span {
+				float: left;
+				margin-top: -10px;
+				white-space: nowrap;
+			}
+
+			.bottom1,
+			.bottom4 {
+				width: 5vw;
+			}
+
+			.mask {
+				display: none;
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 998;
+				background-color: rgba(0, 0, 0, .4);
+			}
+
+			.popups {
+				width: 90%;
+				height: 80%;
+				background-color: #FFFFFF;
+				border-radius: 10px;
+				overflow: hidden;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+			}
+
+			.popups .top {
+				height: 28%;
+				background: url(img/popups1.jpg) no-repeat center /cover;
+				position: relative;
+			}
+
+			.popups .top .close {
+				width: 6vw;
+				position: absolute;
+				top: 2vw;
+				right: 2vw;
+			}
+
+			.popups .top h2 {
+				font-size: 6vw;
+				color: #FFFFFF;
+				position: absolute;
+				top: 14vh;
+				left: 4vw;
+			}
+
+			.popups .top p {
+				color: #FFFFFF;
+				position: absolute;
+				top: 18vh;
+				left: 4vw;
+			}
+
+			.popups .choose {
+				margin: 4vw 0 0;
+				padding-left: 6vw;
+			}
+
+			.popups .choose dl {
+				height: 6vh;
+				line-height: 6vh;
+				color: rgba(56, 56, 56, 1);
+				font-size: 4vw;
+				display: flex;
+				align-items: flex-start;
+			}
+
+			.popups .choose dt {
+				width: 9vw;
+				line-height: 9vw;
+			}
+
+			.popups .choose dd {
+				margin-left: 4vw;
+				flex: 1;
+			}
+
+			.popups .choose dd div {
+				width: 20vw;
+				height: 8vw;
+				float: left;
+				margin-right: 3vw;
+				margin-bottom: 4vw;
+				line-height: 8.4vw;
+				text-align: center;
+				font-size: 3.6vw;
+				color: rgba(204, 192, 180, 1);
+				border: rgba(204, 192, 180, 1) solid 1px;
+				border-radius: 30px;
+			}
+
+			.popups .choose dd .mask-active {
+				background-color: rgba(204, 192, 180, 1);
+				color: #FFFFFF;
+			}
+
+			.popups .choose .last {
+				margin-top: 12vw;
+			}
+
+			.popups .speak {
+				padding: 2vh 5vw 0;
+				border-top: 1px solid rgb(240, 240, 240);
+			}
+
+			.popups .speak h4 {
+				font-weight: normal;
+				font-size: 3.4vw;
+			}
+
+			.popups .speak .maskHead {
+				float: left;
+				width: 8vw;
+				height: 8vw;
+				border-radius: 50%;
+				background: url(img/maskHeadimg.jpg) no-repeat center /cover;
+				width: 8vw;
+			}
+
+			.popups .speak p {
+				float: left;
+				margin: 0.6vh 0 0 2vw;
+				font-size: 3vw;
+			}
+
+			.popups .speak p i {
+				margin-left: 2vw;
+				font-style: normal;
+				padding: 0 2vw;
+				color: rgba(53, 60, 177, 1);
+				background-color: rgba(242, 242, 242, 1);
+				border-radius: 2px;
+				text-align: center;
+			}
+
+			.popups .speak span {
+				float: left;
+				margin-left: 2vw;
+				font-size: 3vw;
+				color: rgba(128, 128, 128, 1);
+			}
+
+			.popups .mask-bottom {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background-color: #FFFFFF;
+			}
+
+			.popups .mask-bottom>div {
+				height: 8vh;
+				border-top: 1px solid rgb(240, 240, 240);
+			}
+
+			.popups .mask-bottom .count {
+				padding: 0 5vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.popups .mask-bottom .count .count-text {
+				font-size: 4vw;
+			}
+
+			.popups .mask-bottom .count .count-text h4 {
+				font-size: 5vw;
+				line-height: 20%;
+			}
+
+			.popups .mask-bottom .count .count-text p {
+				margin-bottom: 0;
+				font-size: 3vw;
+			}
+
+			.popups .mask-bottom .switch {
+				width: 18vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 3vw;
+				color: rgb(136, 175, 213);
+			}
+
+			.popups .mask-bottom .switch a {
+				display: inline-block;
+				width: 5vw;
+				height: 5vw;
+				line-height: 5vw;
+				border: 1px solid rgb(136, 175, 213);
+				border-radius: 50%;
+				text-align: center;
+				font-size: 5vw;
+				color: rgb(136, 175, 213);
+			}
+
+			.popups .mask-bottom .switch .disable {
+				opacity: .4;
+			}
+
+			.popups .mask-bottom .mask-btn {
+				display: flex;
+				align-items: center;
+				justify-content: space-evenly;
+			}
+
+			.popups .mask-bottom .mask-btn a {
+				display: block;
+				padding: 0 3vw;
+				height: 4vh;
+				box-sizing: border-box;
+				border-radius: 6px;
+				font-size: 3vw;
+				color: #FFFFFF;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.popups .mask-bottom .mask-btn a img {
+				width: 4vw;
+				margin-right: 1vw;
+			}
+
+			.popups .mask-bottom .mask-btn .a1 {
+				background-color: rgba(255, 129, 2, 1);
+			}
+
+			.popups .mask-bottom .mask-btn .a2 {
+				border: 1px solid rgba(136, 175, 213, 1);
+				color: rgba(136, 175, 213, 1);
+			}
+
+			.popups .mask-bottom .mask-btn .a3 {
+				background-color: rgba(136, 175, 213, 1);
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">选择咖啡小食</h1>
+		</header>
+		<div class="mui-slider">
+			<div class="mui-slider-group mui-slider-loop">
+				<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="./img/chooseCoffee2.png" /></a></div>
+				<div class="mui-slider-item"><a href="#"><img src="./img/chooseCoffee1.jpg" /></a></div>
+				<div class="mui-slider-item"><a href="#"><img src="./img/chooseCoffee2.png" /></a></div>
+				<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="./img/chooseCoffee1.jpg" /></a></div>
+			</div>
+		</div>
+		<div class="content">
+			<ul class="left">
+			</ul>
+			<div class="right">
+				<ul id="list">
+				</ul>
+			</div>
+		</div>
+		<nav>
+			<a href="index.html" class="bottom1">
+				<img src="./img/bottomNav1.png">
+				<span>首页</span>
+			</a>
+			<a href="chooseCoffee.html" class="bottom2">
+				<img src="./img/bottomNav2-1.svg">
+				<span>菜单</span>
+			</a>
+			<a href="orderList1.html" class="bottom3">
+				<img src="./img/bottomNav3.svg">
+				<span>订单</span>
+			</a>
+			<a href="shopCar.html" class="bottom4">
+				<img src="./img/bottomNav4.svg">
+				<span>购物车</span>
+			</a>
+			<a href="my.html" class="bottom5">
+				<img src="./img/bottomNav5.svg">
+				<span>我的</span>
+			</a>
+		</nav>
+		<div class="mask">
+			<div class="popups">
+				<div class="top">
+					<img class="close" src="./img/maskClose.svg">
+					<h2 id="mask-name">标准美式</h2>
+					<p id="mask-enname">Americano</p>
+				</div>
+				<div class="choose">
+					<dl>
+						<dt>规格</dt>
+						<dd>
+							<div class="mask-active">大</div>
+						</dd>
+					</dl>
+					<dl>
+						<dt>温度</dt>
+						<dd>
+							<div class="mask-active">冰</div>
+							<div>热</div>
+						</dd>
+					</dl>
+					<dl>
+						<dt>糖</dt>
+						<dd>
+							<div class="mask-active">无糖</div>
+							<div>半份糖</div>
+							<div>单份糖</div>
+							<div data-price="3">香草3元</div>
+							<div data-price="3">榛子3元</div>
+						</dd>
+					</dl>
+					<dl class="last">
+						<dt>奶</dt>
+						<dd>
+							<div class="mask-active">无奶</div>
+							<div data-price="2">单份奶</div>
+							<div data-price="4">双份奶</div>
+						</dd>
+					</dl>
+				</div>
+				<div class="speak">
+					<h4>大咖说</h4>
+					<div class="maskHead"></div>
+					<p>Andrea Lattuada <i>WBC意大利冠军</i></p>
+					<span>我会一直传承意大利人数百年的做法，用咖啡发</span>
+				</div>
+				<div class="mask-bottom">
+					<div class="count">
+						<div class="count-text">
+							<h4>¥<span id="totalprices">21</span></h4>
+							<p><span id="shopName">标准美式</span> ¥<span id="coffee-price">21</span> + <span id="sugar">无糖 ¥0</span> + <span
+								 id="milk">无奶 ¥0</span></p>
+						</div>
+						<div class="switch">
+							<a class="switch-reduce" href="javascript:;">-</a>
+							<span class="switch-num">1</span>
+							<a class="switch-add" href="javascript:;">+</a>
+						</div>
+					</div>
+					<div class="mask-btn">
+						<a class="a1" href="javascript:;">
+							<img src="./img/money.svg">
+							<span>充2赠1</span>
+						</a>
+						<a class="a2" href="javascript:;">
+							<img src="./img/heart.svg">
+							<span>收藏口味</span>
+						</a>
+						<a id="addCar" class="a3" href="javascript:;">
+							<img src="./img/shopcar.svg">
+							<span>加入购物车</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			// 轮播图
+			mui.init()
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+				interval: 3000 //自动轮播周期
+			});
+
+			let goods = ''
+			$.get({
+				url: 'data/type.json',
+				success: function(res) {
+					let type = res
+					var left = ''
+					var rightTitle = ''
+					$(type).each(function(index, value) {
+						$('.left').html(function() {
+							left +=
+								`
+								<li ${index===0 ? 'class="active"' : ''}>
+									${value.title}
+									${value.discounts? '<span>'+value.discounts+'</span>': ''}
+								</li>
+							`
+							return left
+						})
+						$('#list').html(function() {
+							rightTitle +=
+								`
+								<div>
+									<p class="${value.text?'p2':'p1'}">
+										<strong>${value.title}</strong>
+										${value.text?'<span>'+value.text+'</span>':''}
+									</p>
+								</div>
+							`
+							return rightTitle
+						})
+					})
+					$.get({
+						url: 'data/goods.json',
+						success: function(res) {
+							goods = res
+							$(goods).each(function(index, value) {
+								$(value.typeClass).each(function(index1, value1) {
+									var good =
+										`
+											<li class="show" data-id="${value.id}">
+												<div class="img">
+													<img src = ${value.imgUrl}>
+													${value.discounts?'<span>'+value.discounts+'</span>' : ''}
+												</div>
+												<div class="text">
+													<h3>${value.name}</h3>
+													<p class="detail">${value.enName}
+														<br/>默认：大/单糖/热</p>
+													<p class="price">¥ ${value.price}</p>
+												</div>
+												<img src="./img/add.svg" >
+											</li>
+										`
+									$('#list').children()[value1 - 1].innerHTML += good
+								})
+							})
+						},
+					})
+				}
+			})
+
+			// 左侧导航切换
+			$('.left').on('click', 'li', function(e) {
+				var index = $(e.target).index()
+				$('.left li').removeClass('active')
+				$('.left li').eq(index).addClass('active')
+				$('#list')[0].scrollTop = $('#list>div')[index].offsetTop
+			})
+			
+			// 右侧滚动
+			$('.right ul').on('scroll',function() {
+				for(let i = 0; i < $(this).children().length; i++){
+					if($(this).scrollTop() > $(this).children()[i].offsetTop - 40){
+						$('.left li').removeClass('active')
+						$('.left li').eq(i).addClass('active')
+					}
+				}
+			})
+			
+			var info = {
+				goodsName: '棒果拿铁',
+				type: [],
+				specification: '大',
+				temperature: '冰',
+				sugar: '无糖',
+				milk: '无奶',
+				sugarPrice: 0,
+				milkPrice: 0,
+				unitPrice: 0,
+				count: 1
+			}
+
+			$(document).ready(function() {
+				$('#list').on('click', '.show', function(e) {
+					var index = $(e.currentTarget).data('id')
+					$('.mask').css('display', 'block')
+					info.goodsName = goods[index - 1].name
+					$('#mask-name').text(info.goodsName)
+					$('#shopName').text(info.goodsName)
+					info.type = goods[index - 1].typeClass
+					$('#mask-enname').text(goods[index - 1].enName)
+					info.unitPrice = goods[index - 1].price
+					$('#totalprices').text(info.unitPrice)
+					$('#coffee-price').text(goods[index - 1].price)
+					$('.choose dd').each(function(index1, value) {
+						$('.choose dd').on('click', 'div', function(e) {
+							var index1 = $(this).parent().index('.choose dd')
+							var child = $('.choose dd')[index1].children
+							for (let i = 0; i < child.length; i++) {
+								child[i].classList.remove('mask-active')
+							}
+							$(this).addClass('mask-active')
+							if (index1 === 0) {
+								info.specification = $(this).text()
+							} else if (index1 === 1) {
+								info.temperature = $(this).text()
+							} else if (index1 === 2) {
+								info.sugarPrice = $(this).data('price') ? $(this).data('price') : 0
+								info.sugar = $(this).text()
+							} else if (index1 === 3) {
+								info.milkPrice = $(this).data('price') ? $(this).data('price') : 0
+								info.milk = $(this).text()
+							}
+							$('#totalprices').text((info.unitPrice+info.sugarPrice+info.milkPrice) * info.count)
+							$('#coffee-price').text(info.unitPrice)
+							$('#sugar').text(info.sugar+' ¥'+info.sugarPrice)
+							$('#milk').text(info.milk+' ¥'+info.milkPrice)
+						})
+						info.unitPrice = info.sugarPrice + info.milkPrice + goods[index - 1].price
+					})
+				})
+
+				// 存localStorage
+				var arr = []
+				$('#addCar').click(function() {
+					if (localStorage.getItem('goods')) {
+						arr = JSON.parse(localStorage.getItem('goods'))
+					}
+					checking(arr, info)
+					hide()
+					var json = JSON.stringify(arr)
+					localStorage.setItem('goods', json)
+					plus.nativeUI.toast("成功加入购物车!");
+				})
+
+				// 查找重复的数据
+				function checking(arr, info) {
+					if (!arr[0]) {
+						arr.push(info)
+						return
+					}
+					var oldObj = JSON.parse(JSON.stringify(arr))
+					var newObj = Object.assign({}, info)
+					delete newObj.count
+					var n = 0
+					for (var i = 0; i < oldObj.length; i++) {
+						delete oldObj[i].count
+						if (JSON.stringify(oldObj[i]) === JSON.stringify(newObj)) {
+							n = 1
+							arr[i].count += info.count
+						}
+					}
+					if (n === 0) {
+						arr.push(info)
+					}
+				}
+
+				// 关闭遮罩层
+				$('.close').click(hide)
+
+				function hide() {
+					$('.mask').css('display', 'none')
+				}
+
+				// 咖啡杯数
+				var reduce = $('.switch-reduce')
+				var num = $('.switch-num')
+				var n = 1
+				$('.switch-add').click(function() {
+					n++
+					num.text(n)
+					reduce.removeClass('disable')
+					info.count = n
+					$('#totalprices').text(info.count * (info.unitPrice+info.sugarPrice+info.milkPrice))
+				})
+				reduce.click(function() {
+					n--
+					if (n <= 0) {
+						n = 0
+						num.text(n)
+						reduce.addClass('disable')
+						return
+					}
+					num.text(n)
+					info.count = n
+					$('#totalprices').text(info.count * (info.unitPrice+info.sugarPrice+info.milkPrice))
+				})
+			})
+		</script>
+	</body>
+
+</html>

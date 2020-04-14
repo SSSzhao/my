@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./css/public.css"/>
+		<style type="text/css">
+			header{
+				height: 6vh;
+				display: flex;
+				align-items: center;
+			}
+			header a{
+				display: inline-block;
+				width: 4vw;
+				margin-left: 5vw;
+			}
+			header a img{
+				width: 100%;
+			}
+			.logo{
+				display: block;
+				margin: 20% auto 30%;
+				width: 21vw;
+			}
+			.btn{
+				display: block;
+				width: 80%;
+				height: 5vh;
+				box-sizing: border-box;
+				border-radius: 4px;
+				line-height: 5vh;
+				text-align: center;
+				color: #fff;
+				font-size: 3vw;
+				margin: 6% auto;
+				background-color: rgba(73, 194, 101, 1);
+			}
+			.btn.phone{
+				background-color: rgba(255, 255, 255, 1);
+				color: rgba(136, 175, 213, 1);
+				border: rgba(136, 175, 213, 1) solid 1px;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="my-not.html"><img src="./img/quit.svg" ></a>
+		</header>
+		<img class="logo" src="./img/loginlogo.png" >
+		<a class="btn" href="wechatLogin.html">微信一键登录</a>
+		<a class="btn phone" href="phoneCodeLogin.html">手机验证码登录</a>
+	</body>
+</html>

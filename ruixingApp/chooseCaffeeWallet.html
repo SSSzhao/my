@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			body{
+				background-color: #f5f5f5;
+			}
+			header{
+				height: 6vh;
+				padding: 0 5vw;
+				border: 1px solid rgb(240, 240, 240);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: #FFFFFF;
+			}
+			header a{
+				display: inline-block;
+				width: 4vw;
+				position: absolute;
+			}
+			header a img{
+				width: 100%;
+			}
+			header h1{
+				flex: 1;
+				text-align: center;
+				font-size: 4vw;
+			}
+			.text{
+				padding: 2vh 5vw 1vh;
+				font-size: 4vw;
+				color: rgba(56, 56, 56, 1);
+			}
+			.content{
+				background-color: #FFFFFF;
+				padding: 1.5vh 0 0.5vh;
+			}
+			.content li{
+				width: 90%;
+				height: 12vh;
+				border: rgb(240, 240, 240) solid 1px;
+				margin: 0 auto 1.5vh;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				box-sizing: border-box;
+				padding: 0 3vw 0 6vw;
+				position: relative;
+			}
+			.content li::before,.content li::after{
+				content: "";
+				position: absolute;
+				left: 20vw;
+				display: block;
+				width: 4vw;
+				height: 4vw;
+				background-color: #FFFFFF;
+				border: rgb(240, 240, 240) solid 1px;
+				border-color: transparent rgb(240, 240, 240) rgb(240, 240, 240) transparent;
+				transform: rotate(45deg);
+				border-radius: 50%;
+			}
+			.content li::before{
+				top: -2.1vw;
+			}
+			.content li::after{
+				bottom: -2.1vw;
+				transform: rotate(225deg);
+			}
+			.content li p{
+				width: 10vw;
+				font-size: 6vw;
+				line-height: 1.6vh;
+			}
+			.content li p small{
+				font-size: 3vw;
+			}
+			.content li p span{
+				font-size: 2.6vw;
+				color: rgba(166, 166, 166, 1);
+			}
+			.content li .center{
+				flex: 1;
+				font-size: 4vw;
+				line-height: 2.8vh;
+				margin-left: 12vw;
+			}
+			.content li .center span{
+				display: block;
+				font-size: 3vw;
+				color: rgba(166, 166, 166, 1);
+			}
+			.content li img{
+				width: 7vw;
+			}
+			.load{
+				padding-top: 3vh;
+				font-size: 3.6vw;
+				text-align: center;
+				color: rgba(166, 166, 166, 1);
+			}
+			.bottom{
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 9vh;
+				background-color: #FFFFFF;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.bottom .btn{
+				display: block;
+				width: 90%;
+				height: 5vh;
+				background-color: rgba(144, 192, 239, 1);
+				border-radius: 6px;
+				line-height: 5.4vh;
+				text-align: center;
+				font-size: 4.2vw;
+				color: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="useCaffeeWallet.html"><img src="./img/quit.svg" ></a>
+			<h1>选择咖啡钱包</h1>
+		</header>
+		<p class="text">可用1张</p>
+		<ul class="content">
+			<li>
+				<p>
+					<small>¥</small>21
+					<span>尚余1杯</span>
+				</p>
+				<span class="center">B1全国通用
+					<span>期限：2018.12.25-2021.12.24</span>
+				</span>
+				<img src="img/gou.svg">
+			</li>
+		</ul>
+		<p class="load">已经全部加载完成</p>
+		<div class="bottom">
+			<a class="btn" href="javascript:;">确定</a>
+		</div>
+	</body>
+</html>

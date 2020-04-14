@@ -1,0 +1,146 @@
+[
+	{
+		"id":1,
+		"name":"榛果拿铁",
+		"enName":"Hazlnut Latte",
+		"typeClass":[1,2],
+		"imgUrl":"./img/coffee1.png",
+		"discounts":"充2赠1",
+		"price":27
+	},
+	{
+		"id":2,
+		"name":"拿铁",
+		"enName":"Latte",
+		"typeClass":[2],
+		"imgUrl":"./img/coffee2.jpg",
+		"discounts":"充2赠1",
+		"price":24
+	},
+	{
+		"id":3,
+		"name":"香草拿铁",
+		"enName":"Vanilla Latte",
+		"typeClass":[2],
+		"imgUrl":"./img/coffee3.jpg",
+		"discounts":"充2赠1",
+		"price":27
+	},
+	{
+		"id":4,
+		"name":"焦糖拿铁",
+		"enName":"Caramel Latte",
+		"typeClass":[2],
+		"imgUrl":"./img/coffee4.jpg",
+		"discounts":"充2赠1",
+		"price":27
+	},
+	{
+		"id":5,
+		"name":"樱花拿铁",
+		"enName":"Cherry Latte",
+		"typeClass":[2],
+		"imgUrl":"./img/coffee5.jpeg",
+		"discounts":"充2赠1",
+		"price":21
+	},
+	{
+		"id":6,
+		"name":"红茶拿铁",
+		"enName":"Black Tea Latte",
+		"typeClass":[3],
+		"imgUrl":"./img/coffee6.jpg",
+		"discounts":"充2赠1",
+		"price":27
+	},
+	{
+		"id":7,
+		"name":"抹茶拿铁",
+		"enName":"Green Tea Latte",
+		"typeClass":[3],
+		"imgUrl":"./img/coffee7.jpg",
+		"discounts":"充2赠1",
+		"price":27
+	},
+	{
+		"id":8,
+		"name":"小雪荔枝瑞纳冰",
+		"enName":"Xiaoxue Litchi Reina Ice",
+		"typeClass":[4],
+		"imgUrl":"./img/coffee8.jpg",
+		"discounts":"充2赠1",
+		"price":27
+	},
+	{
+		"id":9,
+		"name":"卡布奇诺瑞纳冰",
+		"enName":"Cappuccino Reina Ice",
+		"typeClass":[4],
+		"imgUrl":"./img/coffee9.jpg",
+		"discounts":"充2赠1",
+		"price":27
+	},
+	{
+		"id":10,
+		"name":"百香芒果瑞纳冰",
+		"enName":"Mangifera Ice",
+		"typeClass":[4],
+		"imgUrl":"./img/coffee10.jpg",
+		"discounts":"充2赠1",
+		"price":27
+	},
+	{
+		"id":11,
+		"name":"石榴蔓越莓苏打水",
+		"enName":"Pomegranate Cranberry soda",
+		"typeClass":[5],
+		"imgUrl":"./img/coffee11.jpg",
+		"discounts":"充2赠1",
+		"price":27
+	},
+	{
+		"id":12,
+		"name":"柑橘百香果",
+		"enName":"Citrus Passion Fruit",
+		"typeClass":[5],
+		"imgUrl":"./img/coffee12.jpg",
+		"discounts":"充2赠1",
+		"price":27
+	},
+	{
+		"id":13,
+		"name":"香椰提子麦芬",
+		"enName":"Maifen With Coconut And Raisin",
+		"typeClass":[6],
+		"imgUrl":"./img/coffee13.jpg",
+		"discounts":"充2赠1",
+		"price":13
+	},
+	{
+		"id":14,
+		"name":"意大利烤鸡卷",
+		"enName":"Italian Rotisserie Chicken Roll",
+		"typeClass":[6],
+		"imgUrl":"./img/coffee14.jpeg",
+		"discounts":"充2赠1",
+		"price":8
+	},
+	{
+		"id":15,
+		"name":"NFC鲜榨橙汁",
+		"enName":"NFC Fresh Orange Juice",
+		"typeClass":[7],
+		"imgUrl":"./img/coffee15.jpg",
+		"discounts":"充2赠1",
+		"price":27
+	},
+	{
+		"id":16,
+		"name":"NFC鲜榨荔枝汁",
+		"enName":"NFC Fresh Litchi Juice",
+		"typeClass":[7],
+		"imgUrl":"./img/coffee16.jpg",
+		"discounts":"充2赠1",
+		"price":27
+	}
+]

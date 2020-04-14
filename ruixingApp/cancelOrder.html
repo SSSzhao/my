@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			body{
+				background-color: #f5f5f5;
+			}
+			header{
+				height: 6vh;
+				padding: 0 5vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: #FFFFFF;
+				border-bottom: 1px solid rgb(240,240,240);
+			}
+			header a{
+				display: inline-block;
+				width: 5vw;
+			}
+			header a img{
+				width: 100%;
+			}
+			header h1{
+				flex: 1;
+				text-align: center;
+				font-size: 4vw;
+			}
+			header .kefu{
+				width: 5vw;
+			}
+			.wait{
+				padding: 4vh 0 3vh;
+				background-color: #FFFFFF;
+				color: rgb(56,56,56);
+				text-align: center;
+			}
+			.wait h2{
+				font-size: 5vw;
+			}
+			.wait p{
+				margin: 2vh 0 1vh;
+				font-size: 3.4vw;
+				color: rgb(56,56,56);
+			}
+			.wait p span{
+				font-weight: bold;
+				color: rgba(144, 192, 239, 1);
+			}
+			.wait div{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.wait div a{
+				display: inline-block;
+				margin: 0 2vw;
+				width: 28vw;
+				height: 4vh;
+				border: 1px solid rgba(217, 217, 217, 1);
+				border-radius: 4px;
+				font-size: 3.8vw;
+				line-height: 4vh;
+				color: rgb(56,56,56);
+			}
+			.wait div a:last-child{
+				border: 1px solid rgba(255, 129, 2, 1);
+				color: rgba(255, 129, 2, 1);
+			}
+			.content{
+				margin: 1.5vh 0;
+				padding: 0 5vw;
+				background-color: #FFFFFF;
+			}
+			.content .order{
+				display: flex;
+				justify-content: space-between;
+				border-bottom: 1px solid rgb(240,240,240);
+				line-height: 6vh;
+				font-size: 3.6vw;
+			}
+			.content .name{
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 0.4vh 0;
+				font-size: 4vw;
+				color: rgba(56, 56, 56, 1);
+			}
+			.content .name .name-left{
+				line-height: 110%;
+			}
+			.content .name .name-left p{
+				color: rgba(56, 56, 56, 1);
+				font-size: 3vw;
+			}
+			.content .name .name-right{
+				color: rgba(56, 56, 56, 1);
+			}
+			.content .name .name-right span{
+				color: rgba(80, 80, 80, 1);
+				margin-right: 6vw;
+			}
+			.content .cost{
+				display: flex;
+				justify-content: space-between;
+				line-height: 4vh;
+				color: rgba(56, 56, 56, 1);
+			}
+			.content .cost span{
+				font-size: 3.6vw;
+			}
+			.content .blue{
+				color: rgba(144, 192, 239, 1);
+			}
+			.content .price{
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 2.6vh 0 1vh;
+				border-top: 1px solid rgb(240,240,240);
+			}
+			.content .price p{
+				color: rgb(56,56,56);
+				font-size: 3.6vw;
+			}
+			.content .price p strong{
+				font-size: 5vw;
+			}
+			.address{
+				margin-bottom: 1.5vh;
+				padding: 3vh 5vw 1vh;
+				background-color: #FFFFFF;
+				color: rgba(56, 56, 56, 1);
+			}
+			.address p{
+				line-height: 100%;
+			}
+			.address p:first-child{
+				font-size: 3.6vw;
+				display: flex;
+				justify-content: space-between;
+			}
+			.address p:last-child{
+				text-align: right;
+			}
+			.bottom{
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="shopConfirmOrder2.html"><img src="./img/close.svg" ></a>
+			<h1>订单详情</h1>
+			<a href="service.html" class="kefu"><img src="img/kefu.svg"></a>
+		</header>
+		<div class="wait">
+			<h2>待付款</h2>
+			<p>请在<span>4分52秒</span>内完成支付，过时订单将会取消。</p>
+			<div>
+				<a class="cancel" href="javascript:;">取消订单</a>
+				<a href="payCenter.html">去支付</a>
+			</div>
+		</div>
+		<div class="content">
+			<p class="order">
+				<span>外卖订单:33412823848583</span>
+				<span class="nowTime">2019-01-07 14:22</span>
+			</p>
+			<div class="goods"></div>
+			<p class="cost">
+				<span>配送费</span>
+				<strong class="send">¥6</strong>
+			</p>
+			<p class="cost blue">
+				<span>使用优惠券</span>
+				<strong class="reduce">-￥21</strong>
+			</p>
+			<div class="price">
+				<p>共<span class="number">1</span>件商品</p>
+				<p>
+					<span>实付</span>
+					<strong class="reality">￥6</strong>
+				</p>
+			</div>
+		</div>
+		<div class="address"></div>
+		<img class="bottom" src="./img/bottom1.png">
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// 取消订单
+				$('.cancel').click(function() {
+					mui.confirm('是否确认取消订单',' ',['确定','再想想'],null,'div')
+				})
+				
+				// 时间
+				$('.nowTime').text(function() {
+					var date = new Date()
+					var Y = date.getFullYear()
+					var M = (date.getMonth() + 1 + '').padStart(2,'0')
+					var D = (date.getDate() + '').padStart(2,'0')
+					var H = (date.getHours() + '').padStart(2,'0')
+					var m = (date.getMinutes() + '').padStart(2,'0')
+					return Y+'-'+M+'-'+D+' '+H+':'+m
+				})
+				
+				var goods = JSON.parse(localStorage.getItem('goods'))
+				var price = JSON.parse(localStorage.getItem('allPrices'))
+				var useCouponPrice = JSON.parse(localStorage.getItem('useCouponPrice'))
+				var user = JSON.parse(localStorage.getItem('user'))
+				var address = JSON.parse(localStorage.getItem('address'))
+				var content = ''
+				var totalPrice = 0
+				$(goods).each(function(index,value) {
+					if(value.count === 0) return true
+					totalPrice += value.unitPrice * value.count
+					$('.goods').html(function(){
+						content += 
+							`
+							<div class="name">
+								<div class="name-left">
+									${value.goodsName}<p>${value.specification}/${value.sugar}/${value.milk}/${value.temperature}</p>
+								</div>
+								<p class="name-right">
+									<span>x${value.count}</span>
+									<strong>¥${value.unitPrice * value.count}</strong>
+								</p>
+							</div>
+							`
+						return content
+					})
+				})
+				var send = 6
+				if(totalPrice>55){
+					send = 0
+				}
+				$('.number').text(goods.length)
+				$('.send').text('￥' + send)
+				$('.reduce').text('-￥' + (price - useCouponPrice))
+				$('.reality').text('￥' + (useCouponPrice + send))
+				$('.address').html(function() {
+					var html = 
+						`
+						<p>
+							<span>收货地址</span>
+							<span>${address.location}</span>
+						</p>
+						<p>${user.username.slice(0,1)}先生 ${user.phone}</p>
+						`
+					return html
+				})
+			})
+		</script>
+	</body>
+</html>

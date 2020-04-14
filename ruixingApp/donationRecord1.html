@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			body{
+				background-color: #f5f5f5;
+			}
+			header{
+				height: 6vh;
+				padding: 0 5vw;
+				border-bottom: 1px solid rgb(240, 240, 240);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: #FFFFFF;
+			}
+			header a{
+				display: inline-block;
+				width: 4vw;
+				position: absolute;
+			}
+			header a img{
+				width: 100%;
+			}
+			header h1{
+				flex: 1;
+				text-align: center;
+				font-size: 4vw;
+			}
+			.nav{
+				height: 6vh;
+				background-color: #FFFFFF;
+				display: flex;
+			}
+			.nav>a{
+				display: block;
+				width: 33.3%;
+				border-right: 1px solid rgb(240, 240, 240);
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				color: rgba(56, 56, 56, 1);
+				font-size: 3.4vw;
+			}
+			.nav>a span{
+				color: rgba(166, 166, 166, 1);
+				font-size: 2.6vw;
+			}
+			.nav .active{
+				color: rgba(136, 175, 213, 1);
+			}
+			.content{
+				background-color: #FFFFFF;
+				padding: 1.5vh 0 0.5vh;
+				margin-top: 2vh;
+			}
+			.content>p{
+				display: flex;
+				justify-content: space-between;
+				padding: 0.5vh 5vw 1.5vh;
+				font-size: 3vw;
+				color: rgba(128, 128, 128, 1);
+			}
+			.content>p>span{
+				color: rgba(166, 166, 166, 1);
+			}
+			.content div{
+				width: 90%;
+				height: 12vh;
+				border: rgb(240, 240, 240) solid 1px;
+				margin: 0 auto 1.5vh;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				box-sizing: border-box;
+				padding: 0 3vw 0 6vw;
+				position: relative;
+			}
+			.content div::before,.content div::after{
+				content: "";
+				position: absolute;
+				left: 20vw;
+				display: block;
+				width: 4vw;
+				height: 4vw;
+				background-color: #FFFFFF;
+				border: solid 1px;
+				border-color: transparent rgb(240, 240, 240) rgb(240, 240, 240) transparent;
+				transform: rotate(45deg);
+				border-radius: 50%;
+			}
+			.content div::before{
+				top: -2.1vw;
+			}
+			.content div::after{
+				bottom: -2.1vw;
+				transform: rotate(225deg);
+			}
+			.content div p{
+				width: 10vw;
+				font-size: 6vw;
+				line-height: 1.6vh;
+				text-align: center;
+			}
+			.content div p small{
+				font-size: 3vw;
+			}
+			.content div p span{
+				font-size: 3vw;
+				color: rgba(166, 166, 166, 1);
+			}
+			.content div .center{
+				flex: 1;
+				font-size: 4vw;
+				line-height: 2.8vh;
+				margin-left: 12vw;
+			}
+			.content div .center span{
+				display: block;
+				font-size: 3vw;
+				color: rgba(166, 166, 166, 1);
+			}
+			.content .btn{
+				display: block;
+				width: 90%;
+				height: 4.6vh;
+				margin: 0 auto 1vh;
+				color: rgba(136, 175, 213, 1);
+				border: rgba(136, 175, 213, 1) solid 1px;
+				border-radius: 6px;
+				font-size: 4vw;
+				line-height: 5vh;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="entertainGuests.html"><img src="./img/quit.svg" ></a>
+			<h1>选择咖啡</h1>
+		</header>
+		<div class="nav">
+			<a class="active" href="donationRecord1.html">
+				<p>赠送中(0杯)</p>
+				<span>好友未领</span>
+			</a>
+			<a href="donationRecord2.html">
+				<p>已赠送(2杯)</p>
+			</a>
+			<a href="donationRecord3.html">
+				<p>已收到(0杯)</p>
+			</a>
+		</div>
+		<div class="content">
+			<p>共1杯<span>2019-01-07 12:32</span></p>
+			<div>
+				<p>
+					<small>¥</small>21
+					<span>1杯</span>
+				</p>
+				<span class="center">B1全国通用
+					<span>期限：2018.12.25-2021.12.24</span>
+				</span>
+			</div>
+			<a class="btn" href="javascript:;">取消转赠</a>
+		</div>
+	</body>
+</html>

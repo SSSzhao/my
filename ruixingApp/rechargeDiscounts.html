@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>充赠优惠</title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			body{
+				background-color: #f5f5f5;
+			}
+			header{
+				height: 6vh;
+				padding: 0 5vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: #FFFFFF;
+			}
+			header a{
+				display: inline-block;
+				width: 4vw;
+			}
+			header a img{
+				width: 100%;
+			}
+			header h1{
+				width: 58%;
+				text-align: right;
+				font-size: 4vw;
+			}
+			header .more{
+				display: block;
+				flex: 1;
+				font-size: 2.8vw;
+				text-align: right;
+				color: rgb(56, 56, 56);
+				white-space: nowrap;
+			}
+			.text{
+				margin:  4vh 0;
+				font-size: 3vw;
+				color: rgba(80, 80, 80, 1);
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.text img{
+				width: 3.5vw;
+				margin-right: 1vw;
+			}
+			.text span{
+				color: rgba(255, 141, 26, 1);
+			}
+			.content{
+				height: 63vh;
+				background-color: #FFFFFF;
+				padding-top: 1.5vh;
+			}
+			.content li{
+				width: 90%;
+				height: 9vh;
+				border: rgb(240, 240, 240) solid 1px;
+				margin: 0 auto 1.5vh;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				box-sizing: border-box;
+				padding: 0 3vw 0 6vw;
+				position: relative;
+			}
+			.content li::before,.content li::after{
+				content: "";
+				position: absolute;
+				left: 20vw;
+				display: block;
+				width: 4vw;
+				height: 4vw;
+				background-color: #FFFFFF;
+				border: 1px solid;
+				border-color: transparent rgb(240, 240, 240) rgb(240, 240, 240) transparent;
+				transform: rotate(45deg);
+				border-radius: 50%;
+			}
+			.content li::before{
+				top: -2.1vw;
+			}
+			.content li::after{
+				bottom: -2.1vw;
+				transform: rotate(225deg);
+			}
+			.content li p{
+				font-size: 6vw;
+			}
+			.content li p small{
+				font-size: 3vw;
+			}
+			.content li .center{
+				font-size: 4vw;
+			}
+			.content li div{
+				width: 18vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 3vw;
+				color: rgb(136,175,213);
+			}
+			.content li div a{
+				display: inline-block;
+				width: 5vw;
+				height: 5vw;
+				line-height: 5vw;
+				border: 1px solid rgb(136,175,213);
+				border-radius: 50%;
+				text-align: center;
+				font-size: 5vw;
+				color: rgb(136,175,213);
+			}
+			.content li div .disable{
+				opacity: .4;
+			}
+			.bottom{
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 9vh;
+				background-color: #FFFFFF;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.bottom p{
+				font-size: 6vw;
+			}
+			.bottom p small{
+				font-size: 3vw;
+				padding: 0 2vw 0 5vw;
+			}
+			.bottom a{
+				display: block;
+				width: 32vw;
+				height: 100%;
+				vertical-align: middle;
+				line-height: 9vh;
+				background-color: rgba(144, 192, 239, 1);
+				text-align: center;
+				font-size: 5vw;
+				color: #FFFFFF;
+			}
+		</style>
+		<script type="text/javascript">
+			document.addEventListener('plusready', function(){
+				plus.key.addEventListener('backbutton', function() {
+					window.location.href = 'coffeeWallet.html'
+				})
+			})
+			window.onload = function() {
+				var add = document.getElementsByClassName('add')[0]
+				var reduce = document.getElementsByClassName('reduce')[0]
+				var num = document.getElementsByClassName('num')[0]
+				var n = 1
+				add.onclick = function() {
+					n++
+					num.innerText = n
+					reduce.className = ''
+				}
+				reduce.onclick = function() {
+					n--
+					if(n<=0){
+						n = 0
+						num.innerText = n
+						reduce.className = 'disable'
+						return
+					}
+					num.innerText = n
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<header>
+			<a href="coffeeWallet.html"><img src="./img/quit.svg" ></a>
+			<h1>充值咖啡钱包</h1>
+			<a href="moreDiscounts.html" class="more">更多优惠</a>
+		</header>
+		<p class="text">
+			<a href="activityDescription.html"><img src="./img/warn.svg"></a>
+			购买以下饮品券享<span>充2赠1</span>，不同饮品券可组合购买。
+		</p>
+		<ul class="content">
+			<li>
+				<p><small>¥</small>21</p>
+				<span class="center">B1全国通用</span>
+				<div>
+					<a class="reduce" href="javascript:;">-</a>
+					<span class="num">1</span>
+					<a class="add" href="javascript:;">+</a>
+				</div>
+			</li>
+			<li>
+				<p><small>¥</small>21</p>
+				<span class="center">B2全国通用</span>
+				<div>
+					<a class="disable" href="javascript:;">-</a>
+					<span>0</span>
+					<a href="javascript:;">+</a>
+				</div>
+			</li>
+			<li>
+				<p><small>¥</small>21</p>
+				<span class="center">B3全国通用</span>
+				<div>
+					<a class="disable" href="javascript:;">-</a>
+					<span>0</span>
+					<a href="javascript:;">+</a>
+				</div>
+			</li>
+			<li>
+				<p><small>¥</small>21</p>
+				<span class="center">B4全国通用</span>
+				<div>
+					<a class="disable" href="javascript:;">-</a>
+					<span>0</span>
+					<a href="javascript:;">+</a>
+				</div>
+			</li>
+			<li>
+				<p><small>¥</small>21</p>
+				<span class="center">B5全国通用</span>
+				<div>
+					<a class="disable" href="javascript:;">-</a>
+					<span>0</span>
+					<a href="javascript:;">+</a>
+				</div>
+			</li>
+			<li>
+				<p><small>¥</small>21</p>
+				<span class="center">B6全国通用</span>
+				<div>
+					<a class="disable" href="javascript:;">-</a>
+					<span>0</span>
+					<a href="javascript:;">+</a>
+				</div>
+			</li>
+		</ul>
+		<div class="bottom">
+			<p><small>应付合计</small>¥21</p>
+			<a href="confirmOrder.html">去结算</a>
+		</div>
+	</body>
+</html>

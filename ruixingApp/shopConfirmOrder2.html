@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<style type="text/css">
+			body{
+				background-color: #f5f5f5;
+			}
+			header{
+				height: 6vh;
+				padding: 0 5vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: #FFFFFF;
+				border-bottom: 1px solid rgb(240,240,240);
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+			}
+			header a{
+				display: inline-block;
+				width: 4vw;
+				position: absolute;
+			}
+			header a img{
+				width: 100%;
+			}
+			header h1{
+				flex: 1;
+				text-align: center;
+				font-size: 4vw;
+			}
+			.time {
+				height: 12vh;
+				padding: 6vh 5vw 0;
+				background-color: #FFFFFF;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.time .time-left{
+				width: 90px;
+				height: 36px;
+				border: 1px solid rgb(136, 175, 213);
+				border-radius: 19px;
+				font-size: 14px;
+				text-align: center;
+				box-sizing: border-box;
+				padding: 0 2px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.time .time-left a{
+				display: inline-block;
+				width: 44px;
+				height: 30px;
+				border-radius: 15px;
+				font-size: 12px;
+				color: rgb(136, 175, 213);
+				line-height: 30px;
+				text-align: center;
+			}
+			.time .time-left .active{
+				background-color: rgb(136, 175, 213);
+				color: rgb(255, 255, 255);
+				width: 44px;
+			}
+			.time .time-right{
+				font-size: 4vw;
+				font-weight: bold;
+				color: rgba(56, 56, 56, 1);
+				text-align: right;
+			}
+			.time .time-right div{
+				display: inline-flex;
+				align-items: center;
+				height: 1.6vh;
+				border: 1px solid rgba(217, 217, 217, 1);
+				border-radius: 2px;
+				font-weight: normal;
+				font-size: 2.4vw;
+			}
+			.time .time-right div img{
+				width: 3vw;
+				margin: 0 0.6vw;
+			}
+			.time .time-right p{
+				font-weight: normal;
+				color: rgba(128, 128, 128, 1);
+			}
+			.time .time-right p span{
+				font-size: 7vw;
+				font-weight: bold;
+				color: rgba(136, 175, 213, 1);
+			}
+			.store{
+				display: block;
+				padding: 0 5vw;
+				margin-top: 10px;
+				height: 13vh;
+				background-color: #FFFFFF;
+				border-bottom: 1px solid rgb(240,240,240);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				color: rgb(56,56,56);
+				font-size: 3.2vw;
+			}
+			.store .store-left strong{
+				font-size: 3.6vw;
+			}
+			.store .store-left p{
+				display: flex;
+				align-items: center;
+			}
+			.store .store-left p img{
+				width: 4vw;
+				margin-right: 1vw;
+			}
+			.store .store-left p i{
+				border: 1px solid rgba(136, 175, 213, 1);
+				border-radius: 2px;
+				font-style: normal;
+				font-size: 3vw;
+				color: rgba(136, 175, 213, 1);
+			}
+			.store .store-left p:nth-child(2){
+				font-size: 4vw;
+				margin: 0.5vh 0 0.2vh;
+			}
+			.store .store-left span{
+				display: inline-block;
+				width: 60vw;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			.store>img{
+				width: 5vw;
+			}
+			.info{
+				background-color: #FFFFFF;
+				border-bottom: 1px solid rgb(240,240,240);
+				padding: 0 5vw 1vh;
+			}
+			.info .info-title{
+				font-size: 3.6vw;
+				font-weight: bold;
+				line-height: 6vh;
+			}
+			.info .info-middle{
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 2vh;
+				color: rgb(56,56,56);
+			}
+			.info>.info-middle{
+				margin-bottom: 0vh;
+			}
+			.info .info-middle .info-left{
+				flex: 3;
+				font-size: 4vw;
+			}
+			.info .info-middle .info-left p{
+				font-size: 2.8vw;
+			}
+			.info .info-middle span{
+				flex: 1;
+			}
+			.info .info-middle strong{
+				flex: 1;
+				text-align: right;
+			}
+			.orange{
+				color: rgba(255, 129, 2, 1);
+			}
+			.info-price{
+				height: 7vh;
+				background-color: #FFFFFF;
+				padding: 0 5vw;
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				color: rgba(80, 80, 80, 1);
+				font-size: 3vw;
+			}
+			.info-price strong{
+				color: rgba(56, 56, 56, 1);
+				font-size: 5.4vw;
+				margin-left: 3vw;
+			}
+			.discounts{
+				margin-top: 10px;
+				padding-left: 5vw;
+				background-color: #FFFFFF;
+			}
+			.discounts>a{
+				display: block;
+				height: 7vh;
+				padding-right: 5vw;
+				border-bottom: 1px solid rgb(240,240,240);
+				font-size: 4vw;
+				color: rgb(56,56,56);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.discounts>a>span{
+				display: flex;
+				align-items: center;
+			}
+			.discounts>a div{
+				display: inline-flex;
+				align-items: center;
+			}
+			.discounts>a div span{
+				color: rgb(128,128,128);
+			}
+			.discounts div img{
+				width: 4vw;
+				margin-left: 1vw;
+			}
+			.discounts>a .blue{
+				color: rgba(136, 175, 213, 1);
+			}
+			.discounts>a .blue i{
+				margin-left: 2vw;
+				padding: 0 1vw;
+				background-color: rgba(255, 129, 2, 1);
+				color: #FFFFFF;
+				font-style: normal;
+				font-size: 2.6vw;
+				border-radius: 2px;
+			}
+			.discounts>a .orange{
+				color: rgba(255, 141, 26, 1);
+			}
+			.discounts .use{
+				overflow: hidden;
+				transition: height .3s;
+			}
+			.switch{
+				position: relative;
+				width: 50px;
+				height: 26px;
+				border: 1px solid rgb(240,240,240);
+				border-radius: 20px;
+				box-sizing: border-box;
+			}
+			.switch .switch-handle{
+				position: absolute;
+				z-index: 1;
+				left: -1px;
+				width: 28px;
+				height: 28px;
+				background-color: #FFFFFF;
+				border-radius: 50%;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+				transition: .2s ease-in-out;
+			}
+			.switch-blue{
+			    border: 1px solid rgba(136, 175, 213, 1);
+			    background-color: rgba(136, 175, 213, 1);
+			}
+			.switch-blue .switch-handle{
+				left: 22px;
+			}
+			.space{
+				display: block;
+				height: 7vh;
+				margin-top: 10px;
+				padding: 0 5vw;
+				background-color: #FFFFFF;
+				font-size: 4vw;
+				color: rgb(56,56,56);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.space img{
+				width: 4vw;
+			}
+			.bottom{
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 9vh;
+				background-color: #FFFFFF;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.bottom p{
+				font-size: 6vw;
+				padding-left: 5vw;
+			}
+			.bottom p span{
+				font-size: 3.4vw;
+				margin-right: 3vw;
+			}
+			.bottom p i{
+				font-style: normal;
+			}
+			.bottom a{
+				display: block;
+				width: 32vw;
+				height: 100%;
+				vertical-align: middle;
+				line-height: 9vh;
+				background-color: rgba(144, 192, 239, 1);
+				text-align: center;
+				font-size: 5vw;
+				color: #FFFFFF;
+			}
+			.agreement{
+				height: 16vh;
+				font-size: 3vw;
+				padding: 0 5vw;
+			}
+			.agreement p{
+				margin: 2vh 0 0.5vh;
+				display: flex;
+				align-items: center;
+				color: rgba(128, 128, 128, 1);
+			}
+			.agreement p img{
+				width: 5vw;
+				margin-right: 1vw;
+			}
+			.agreement p a{
+				margin-left: 1vw;
+				color: rgb(85, 122, 157);
+			}
+			.agreement span{
+				font-size: 2.8vw;
+				color: rgba(166, 166, 166, 1);
+			}
+			.mask{
+				display: none;
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 998;
+				background-color: rgba(0,0,0,.6);
+			}
+			.mask .dialog{
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+				width: 76%;
+				height: 21vh;
+				background-color: #FFFFFF;
+				border-radius: 6px;
+			}
+			.mask .dialog p{
+				height: 70%;
+				padding: 0 5vw;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				color: rgba(56, 56, 56, 1);
+			}
+			.mask .dialog a{
+				display: block;
+				border-top: 1px solid rgb(240,240,240);
+				text-align: center;
+				line-height: 6vh;
+				color: rgba(136, 175, 213, 1);
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="shopCar.html"><img src="./img/quit.svg" ></a>
+			<h1>确认订单</h1>
+		</header>
+		<div class="time">
+			<div class="time-left">
+				<a href="storeByMe.html">自提</a>
+				<a class="active" href="javascript:;">外送</a>
+			</div>
+			<div class="time-right">
+				<div><img src="img/slow.svg">慢必赔</div>
+				<span>立即配送</span>
+				<p>约<span class="predictTime">14:42</span>送达</p>
+			</div>
+		</div>
+		<a class="store" href="addressChoose.html">
+			<div class="store-left"></div>
+			<img src="./img/skip2.svg" >
+		</a>
+		<div class="info">
+			<p class="info-title">订单信息</p>
+			<div class="info-content"></div>
+			<div class="info-middle">
+				<div class="info-left">
+					<strong>配送费</strong>
+					<p class="orange">面价满55元免配送费</p>
+				</div>
+				<strong class="send"></strong>
+			</div>
+		</div>
+		<p class="info-price">合计<strong class="totalPrice">¥ 21</strong></p>
+		<div class="discounts">
+			<a href="javascript:;">
+				<span>使用优惠</span>
+				<div class="switch switch-blue">
+					<div class="switch-handle"></div>
+				</div>
+			</a>
+			<a class="use" href="useCaffeeWallet.html">
+				<span class="blue">使用咖啡钱包<i>充赠优惠</i></span>
+				<div>
+					<span class="orange">1个可用</span>
+					<img src="./img/skip2.svg" >
+				</div>
+			</a>
+			<a class="use useCoupon" href="javascript:;">
+				<span class="blue">使用优惠券</span>
+				<div class="after">
+					<span class="orange">6个可用</span>
+					<img src="./img/skip2.svg" >
+				</div>
+			</a>
+			<a href="javascript:;">
+				<span>支付方式</span>
+				<div>
+					<span>支付宝支付</span>
+					<img src="./img/skip2.svg" >
+				</div>
+			</a>
+		</div>
+		<a class="space" href="orderRemarks.html">
+			<span>备注特殊要求</span>
+			<div>
+				<img src="./img/skip2.svg" >
+			</div>
+		</a>
+		<div class="agreement">
+			<p>
+				<img src="./img/check.svg" >
+				我已阅读并同意<a href="javasctipt:;">《支付协议》</a>
+			</p>
+			<span>温馨提示：仅支持开具电子发票，订单完成后可前往发票管理中开具</span>
+		</div>
+		<div class="bottom">
+			<p><span>还需支付</span>¥<i class="allPrice">6</i></p>
+			<a href="wechatPay2.html">去支付</a>
+		</div>
+		<div class="mask">
+			<div class="dialog">
+				<p>店铺已打烊ZzZi，10:00-18:00营业时间再来吧</p>
+				<a class="hide" href="javascript:;">我知道了</a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			// 配送信息store-left
+			$('.store-left').html(function() {
+				var user = JSON.parse(localStorage.getItem('user'))
+				var address = JSON.parse(localStorage.getItem('address'))
+				var html = 
+					`
+					<strong>配送信息</strong>
+					<p><img src="img/address.svg"><span>${address.location}</span><i>${address.remark}</i></p>
+					<p><img src="img/phone.svg">${user.phone}</p>
+					`
+				return html
+			})
+				
+			// 使用优惠
+			$('.switch-handle').click(function() {
+				$('.switch').toggleClass('switch-blue')
+				if($('.switch')[0].classList.contains('switch-blue')){
+					$('.use').css({'height':'7vh','border-width':'1px'})
+				}else{
+					$('.use').css({'height':'0','border-width':'0'})
+				}
+			})
+			$('.useCoupon').click(function() {
+				plus.webview.open('useCoupon.html','',{},'slide-in-right');
+			})
+			
+			$(document).ready(function() {
+				// 时间
+				var time = new Date(new Date().getTime() + 1800000)
+				var hours = time.getHours()+''
+				var minutes = time.getMinutes()  + ''
+				$('.predictTime').text(hours.padStart(2,'0') + ':' + minutes.padStart(2,'0'))
+				
+				
+				
+				// 订单信息
+				var goods = JSON.parse(localStorage.getItem('goods'))
+				var price = JSON.parse(localStorage.getItem('allPrices'))
+				var content = ''
+				var totalPrice = 0
+				$(goods).each(function(index,value) {
+					if(value.count === 0) return true
+					totalPrice += value.unitPrice * value.count
+					$('.info-content').html(function(){
+						content += 
+							`
+							<div class="info-middle">
+								<div class="info-left">
+									<strong>${value.goodsName}</strong>
+									<p>${value.specification}/${value.sugar}/${value.milk}/${value.temperature}</p>
+								</div>
+								<span>x${value.count}</span>
+								<strong>¥${value.unitPrice * value.count}</strong>
+							</div>
+							`
+						return content
+					})
+				})
+				// 配送费
+				var send = 6
+				if(totalPrice>=55){
+					send = 0
+				}
+				$('.send').text('¥'+send)
+				
+				// 合计
+				$('.totalPrice').text('¥ ' + (totalPrice+send))
+				
+				// 优惠后各商品价格
+				let allprice = price
+				if(localStorage.getItem('couponInfo')){
+					var data = JSON.parse(localStorage.getItem('couponInfo'))
+					var couponType = data.type
+					$('.after').html('<span class="orange">'+data.title+' '+data.discount+'折</span>')
+					var arr = []
+					$(goods).each(function(index,value){
+						var goodsType = value.type
+						var goodsPrice = value.unitPrice*value.count
+						arr.push(goodsPrice) 
+						var flag = false
+						$(goodsType).each(function(index1,value1) {
+							$(couponType).each(function(index2,value2) {
+								if(value1 === value2){
+									flag = true
+									return false
+								}
+							})
+							if(flag){
+								goodsPrice = (goodsPrice * data.discount/10).toFixed(1)
+								arr[index] = parseFloat(goodsPrice)
+								return false
+							}
+						})
+					})
+					// 折后总价格
+					allprice = send
+					$(arr).each(function(index,value){
+						allprice += value
+					})
+				}
+				$('.allPrice').text(allprice)
+				localStorage.setItem('useCouponPrice',allprice)
+				
+				// 去支付
+				$('.toPay').click(function() {
+					plus.webview.open('wechatPay2.html','',{},'slide-in-right')
+				})
+			})
+		</script>
+	</body>
+</html>

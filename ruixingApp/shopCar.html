@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			body{
+				background-color: #F5F5F5;
+			}
+			header{
+				height: 6vh;
+				padding: 0 5vw;
+				background-color: #FFFFFF;
+				line-height: 6vh;
+				font-size: 4.4vw;
+				font-weight: bold;
+				text-align: center;
+				border-bottom: 1px solid rgb(240,240,240);
+				position: relative;
+			}
+			header span{
+				font-size: 3vw;
+				font-weight: normal;
+				position: absolute;
+				right: 5vw;
+			}
+			.top-img{
+				width: 100%;
+				vertical-align: bottom;
+			}
+			.scroll{
+				height: 77vh;
+				overflow-y: auto;
+			}
+			.top{
+				background-color: #FFFFFF;
+				overflow-y: auto;
+			}
+			.top .count{
+				padding: 0 5vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				border-bottom: 1px solid rgb(240,240,240);
+			}
+			.top .count .left{
+				height: 12vh;
+				display: inline-flex;
+				align-items: center;
+			}
+			.top .count .left img{
+				width: 6vw;
+				margin-right: 3vw;
+			}
+			.top .count .left .text{
+				font-size: 3.4vw;
+			}
+			.top .count .left .text .title{
+				font-weight: bold;
+				display: inline-flex;
+			}
+			.top .count .left .text .title span{
+				align-self: center;
+				margin-left: 2vw;
+				padding: 0.4vw 0.6vw;
+				color: rgba(255, 255, 255, 1);
+				background-color: rgba(255, 129, 2, 1);
+				border-radius: 2px;
+				font-size: 8px;
+			}
+			.top .count .left .text .middle{
+				color: rgba(80, 80, 80, 1);
+				font-size: 3vw;
+			}
+			.top .count .left .text .down{
+				color: rgba(85, 122, 157, 1);
+				font-size: 3vw;
+			}
+			.top .count .right{
+				display: inline-flex;
+			}
+			.top .count .right strong{
+				font-size: 5vw;
+				margin-right: 3vw;
+			}
+			.top .count .right div{
+				width: 18vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 4.4vw;
+				color: rgb(136,175,213);
+			}
+			.top .count .right div a{
+				display: inline-block;
+				width: 5vw;
+				height: 5vw;
+				line-height: 5vw;
+				border: 1px solid rgb(136,175,213);
+				border-radius: 50%;
+				text-align: center;
+				font-size: 5vw;
+				color: rgb(136,175,213);
+			}
+			.top .count .right div .disable{
+				opacity: .4;
+			}
+			.like{
+				padding: 0 5vw;
+				margin: 2vh 0 1vh;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 3.6vw;
+				color: rgba(56, 56, 56, 1);
+			}
+			.like span{
+				display: inline-flex;
+				align-items: center;
+				color: rgba(144, 192, 239, 1);
+				font-size: 3vw;
+			}
+			.like span img{
+				width: 4.4vw;
+				margin-right: 1vw;
+			}
+			ul{
+				padding: 0 5vw;
+				display: flex;
+				justify-content: space-between;
+			}
+			ul li{
+				width: 31%;
+				height: 26vh;
+				background-color: #FFFFFF;
+				font-size: 3vw;
+				position: relative;
+			}
+			ul li .food{
+				width: 100%;
+			}
+			ul li p{
+				padding: 0 0 0 1vw;
+				line-height: 2vh;
+			}
+			ul li .name{
+				color: rgba(56, 56, 56, 1);
+				white-space: nowrap;
+			}
+			ul li .enName{
+				color: rgba(166, 166, 166, 1);
+				font-size: 3vw;
+				white-space: nowrap;
+				font-weight: bold;
+			}
+			ul li .food-price{
+				height: 3vh;
+				padding: 0 1vw;
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 1vh;
+				display: inline-flex;
+				align-items: center;
+				justify-content: space-between;
+				color: rgba(166, 166, 166, 1);
+				font-size: 3.4vw;
+			}
+			ul li .food-price span{
+				color: rgba(255, 141, 26, 1);
+				font-weight: bold;
+			}
+			ul li .food-price img{
+				width: 6vw;
+			}
+			.bottom{
+				position: fixed;
+				bottom: 7vh;
+				left: 0;
+				right: 0;
+				height: 9vh;
+				background-color: #FFFFFF;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.bottom p{
+				font-size: 6vw;
+				padding-left: 5vw;
+			}
+			.bottom p i{
+				font-style: normal;
+			}
+			.bottom p span{
+				font-size: 3.4vw;
+				margin-right: 3vw;
+			}
+			.bottom a{
+				display: block;
+				width: 32vw;
+				height: 100%;
+				vertical-align: middle;
+				line-height: 9vh;
+				background-color: rgba(144, 192, 239, 1);
+				text-align: center;
+				font-size: 5vw;
+				color: #FFFFFF;
+			}
+			nav{
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 7vh;
+				background-color: #FFFFFF;
+				padding: 0 10.6vw;
+				border-top: 1px solid rgb(217, 217, 217);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			nav a{
+				display: inline-block;
+				width: 4vw;
+				font-size: 2vw;
+				color: rgb(43, 76, 126);
+				text-align: center;
+			}
+			nav a img{
+				width: 100%;
+			}
+			nav a span{
+				white-space: nowrap;
+			}
+			.bottom1,.bottom4{
+				width: 5vw;
+			}
+		</style>
+	</head>
+	<body>
+		<header>购物车<span id="clear">清空购物车</span></header>
+		<div class="scroll">
+			<img class="top-img" src="./img/shopCarTop.png" >
+			<div class="top"></div>
+			<p class="like">
+				<strong>猜你喜欢</strong>
+				<span><img src="./img/change.svg">换一批</span>
+			</p>
+			<ul>
+				<li>
+					<img class="food" src="./img/shopCar01.png" >
+					<p class="name">金枪鱼谷物沙拉</p>
+					<p class="enName">Tuna and Mixed Gr...</p>
+					<div class="food-price">
+						<span>¥25.08</span>
+						<del>¥38</del>
+						<img src="./img/add.svg" >
+					</div>
+				</li>
+				<li>
+					<img class="food" src="./img/shopCar02.png" >
+					<p class="name">意大利烤鸡卷(单卷)</p>
+					<p class="enName">Italian Roasted Chi...</p>
+					<div class="food-price">
+						<span>¥8.58</span>
+						<del>¥13</del>
+						<img src="./img/add.svg" >
+					</div>
+				</li>
+				<li>
+					<img class="food" src="./img/shopCar03.png" >
+					<p class="name">经典牛肉土豆泥沙拉</p>
+					<p class="enName">Beef and Mashed p...</p>
+					<div class="food-price">
+						<span>¥25.08</span>
+						<del>¥38</del>
+						<img src="./img/add.svg" >
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="bottom">
+			<p><span>应付合计</span>¥<i id="allPrices">0</i></p>
+			<a id="toPay" href="javascript:;">去结算</a>
+		</div>
+		<nav>
+			<a href="index.html" class="bottom1">
+				<img src="./img/bottomNav1.png">
+				<span>首页</span>
+			</a>
+			<a href="chooseCoffee.html" class="bottom2">
+				<img src="./img/bottomNav2.svg">
+				<span>菜单</span>
+			</a>
+			<a href="orderList1.html" class="bottom3">
+				<img src="./img/bottomNav3.svg">
+				<span>订单</span>
+			</a>
+			<a href="shopCar.html" class="bottom4">
+				<img src="./img/bottomNav4-1.svg">
+				<span>购物车</span>
+			</a>
+			<a href="my.html" class="bottom5">
+				<img src="./img/bottomNav5.svg">
+				<span>我的</span>
+			</a>
+		</nav>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// 清空购物车
+				$('#clear').click(function() {
+					plus.nativeUI.confirm("确认清空购物车？", function(e){
+						if(!e.index){
+							localStorage.setItem('goods','');
+							location.reload();
+						}
+					});
+				})
+				// 渲染商品
+				var data = [];
+				if(localStorage.getItem('goods')){
+					data = JSON.parse(localStorage.getItem('goods'));
+				}
+				var count = '';
+				var sum = [];
+				var allPrices = 0;
+				$(data).each(function(index,value) {
+					$('#allPrices').text(function() {
+						allPrices += value.unitPrice * value.count
+						return allPrices
+					})
+					$('.top').html(function(){
+						count +=
+							`
+							<div class="count">
+								<div class="left">
+									<img src="./img/gou.svg" >
+									<div class="text">
+										<p class="title">${value.goodsName}<span>充2赠1</span></p>
+										<p class="middle">
+											${value.specification}/${value.milk}/${value.sugar}/${value.temperature}
+										</p>
+										<p class="down">仅限打包带走</p>
+									</div>
+								</div>
+								<div class="right">
+									<strong>¥${value.unitPrice * value.count}</strong>
+									<div>
+										<a class="reduce" href="javascript:;">-</a>
+										<span class="num">${value.count}</span>
+										<a class="add" href="javascript:;">+</a>
+									</div>
+								</div>
+							</div>
+							`
+						return count
+					})
+					sum.push(value)
+					$('.right div').on('click',function(e) {
+						for(var i = 0;i<$('.right').length;i++){
+							var num = $('.num').eq(i)
+							if(e.target == $('.add')[i]){
+								sum[i].count++
+								num.text(sum[i].count)
+								$('.reduce').eq(i).removeClass('disable')
+							}
+							if(e.target == $('.reduce')[i]){
+								sum[i].count--
+								if (sum[i].count <= 0) {
+									sum[i].count = 0
+									$('.reduce').eq(i).addClass('disable')
+								}
+								num.text(sum[i].count)
+							}
+							$('.right strong').eq(i).text('¥'+sum[i].count * sum[i].unitPrice)
+						}
+						allPrices = 0
+						for(var i = 0; i < sum.length; i++){
+							allPrices += sum[i].count * sum[i].unitPrice
+						}
+						$('#allPrices').text(allPrices)
+						localStorage.setItem('goods',JSON.stringify(sum))
+					})
+				})
+				// 结算
+				$('#toPay').click(function() {
+					if(!localStorage.getItem('goods')){
+						plus.nativeUI.alert("您的购物车为空!", function(){
+						}, "", "确认");
+						return
+					}
+					localStorage.setItem('allPrices',allPrices)
+					plus.webview.open('shopConfirmOrder.html','',{},'slide-in-right');
+				})
+			})
+		</script>
+	</body>
+</html>

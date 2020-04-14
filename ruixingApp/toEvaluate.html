@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			body{
+				background-color: #f5f5f5;
+			}
+			header{
+				height: 6vh;
+				padding: 0 5vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: #FFFFFF;
+				border-bottom: 1px solid rgb(240,240,240);
+			}
+			header a{
+				display: inline-block;
+				width: 4vw;
+				position: absolute;
+			}
+			header a img{
+				width: 100%;
+			}
+			header h1{
+				flex: 1;
+				text-align: center;
+				font-size: 4vw;
+			}
+			.content{
+				background-color: #FFFFFF;
+				padding: 3vh 0 2vh;
+			}
+			.content .title{
+				text-align: center;
+			}
+			.content .images{
+				margin: 3vh 0;
+				text-align: center;
+			}
+			.content .images img{
+				margin: 0 3vw;
+				width: 12vw;
+			}
+			.content .area{
+				width: 90%;
+				margin: 0 auto;
+				background-color: #F5F5F5;
+				border-radius: 4px;
+				height: 20vh;
+				box-sizing: border-box;
+				padding: 1vh 2vw;
+				font-size: 3.4vw;
+				color: rgba(166, 166, 166, 1);
+				position: relative;
+			}
+			.content .area span{
+				position: absolute;
+				right: 2vw;
+				bottom: 1vh;
+				color: rgba(80, 80, 80, 1);
+			}
+			.bottom{
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 9vh;
+				background-color: #FFFFFF;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.bottom a{
+				display: block;
+				width: 86%;
+				height: 60%;
+				margin: 0 auto;
+				line-height: 5.8vh;
+				background-color: rgba(144, 192, 239, 1);
+				border-radius: 8px;
+				text-align: center;
+				font-size: 5vw;
+				color: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="orderList1.html"><img src="./img/quit.svg" ></a>
+			<h1>评价</h1>
+		</header>
+		<div class="content">
+			<p class="title">“满意”</p>
+			<div class="images">
+				<img src="./img/good.svg">
+				<img src="./img/bad.svg">
+			</div>
+			<div class="area">
+				<p>请输入评价内容（可不填）</p>
+				<span>0/200</span>
+			</div>
+		</div>
+		<div class="bottom">
+			<a href="javascript:;">提交</a>
+		</div>
+	</body>
+</html>

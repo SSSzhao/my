@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			body{
+				background-color: #f5f5f5;
+			}
+			header{
+				height: 6vh;
+				padding: 0 5vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: #FFFFFF;
+				border-bottom: 1px solid rgb(240,240,240);
+			}
+			header a{
+				display: inline-block;
+				width: 4vw;
+				position: absolute;
+			}
+			header a img{
+				width: 100%;
+			}
+			header h1{
+				flex: 1;
+				text-align: center;
+				font-size: 4vw;
+			}
+			.content{
+				padding-left: 5vw;
+				background-color: #FFFFFF;
+			}
+			.content>a{
+				display: flex;
+				align-items: center;
+				height: 7.5vh;
+				border-bottom: 1px solid rgb(240,240,240);
+				font-size: 4vw;
+				color: rgb(56,56,56);
+				position: relative;
+			}
+			.content>a p{
+				width: 24vw;
+			}
+			.content>a>div{
+				color: rgba(217, 217, 217, 1);
+				display: inline-flex;
+			}
+			.content>a>div .radio{
+				display: flex;
+			}
+			.content>a>div .radio>div{
+				margin-right: 10vw;
+				display: inline-flex;
+				align-items: center;
+				color: rgba(80, 80, 80, 1);
+			}
+			.content>a>div .radio>div span{
+				display: inline-block;
+				width: 5vw;
+				height: 5vw;
+				margin-right: 1vw;
+				border: 1px solid rgb(240,240,240);
+				border-radius: 50%;
+			}
+			.content>a>div .radio>div img{
+				width: 7vw;
+				margin-right: 1vw;
+			}
+			.content>a .phoneNumber{
+				color: rgba(128, 128, 128, 1);
+			}
+			.content>a>img{
+				width: 5vw;
+				opacity: .2;
+				position: absolute;
+				right: 5vw;
+			}
+			.content>a>div span{
+				display: block;
+				width: 14vw;
+				height: 3.4vh;
+				margin-right: 3vw;
+				border: 1px solid rgb(240,240,240);
+				border-radius: 30px;
+				line-height: 3.8vh;
+				text-align: center;
+				color: rgba(80, 80, 80, 1);
+			}
+			.default{
+				height: 6vh;
+				padding: 0 5vw;
+				display: flex;
+				align-items: center;
+				font-size: 3.4vw;
+				color: rgba(80, 80, 80, 1);
+			}
+			.default span{
+				display: inline-block;
+				width: 3.4vw;
+				height: 3.4vw;
+				margin-right: 2vw;
+				border: 1px solid rgb(217,217,217);
+				border-radius: 4px;
+			}
+			.bottom{
+				height: 9vh;
+				background-color: #FFFFFF;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.bottom a{
+				display: block;
+				width: 90%;
+				height: 5vh;
+				background-color: rgba(136, 175, 213, 0.6);
+				border-radius: 6px;
+				text-align: center;
+				line-height: 5.4vh;
+				color: #FFFFFF;
+				font-size: 4.4vw;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="addressChoose.html"><img src="./img/quit.svg" ></a>
+			<h1>添加地址</h1>
+		</header>
+		<div class="content">
+			<a href="javascript:;">
+				<p>联系人</p>
+				<div>用于取餐时对您的称呼</div>
+			</a>
+			<a href="javascript:;">
+				<p>性别</p>
+				<div>
+					<div class="radio">
+						<div><span></span>先生</div>
+						<div><img src="./img/gou.svg">女士</div>
+					</div>
+				</div>
+			</a>
+			<a href="javascript:;">
+				<p>手机号码</p>
+				<div class="phoneNumber">13813890520</div>
+			</a>
+			<a href="chooseAddress.html">
+				<p>地址</p>
+				<div>请选择您的地址</div>
+				<img src="./img/skip3.svg" >
+			</a>
+			<a href="javascript:;">
+				<p>门牌号</p>
+				<div>例:5号楼203室</div>
+			</a>
+			<a href="javascript:;">
+				<p>标签</p>
+				<div>
+					<span>公司</span>
+					<span>家</span>
+					<span>学校</span>
+				</div>
+			</a>
+		</div>
+		<p class="default">
+			<span></span>设为默认地址
+		</p>
+		<div class="bottom">
+			<a href="javascript:;">保存</a>
+		</div>
+	</body>
+</html>

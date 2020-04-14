@@ -1,0 +1,102 @@
+body{
+	background-color: #F5F5F5;
+}
+header{
+	display: inline-block;
+	width: 100%;
+	height: 26vh;
+	background-color: rgb(100, 68, 60);
+}
+
+.head{
+	width: 90%;
+	margin: 11vh auto 0;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.head .headimg{
+	width: 18vw;
+	height: 18vw;
+	border-radius: 50%;
+	background: url(../img/myHeadImg.jpg) no-repeat left /170%;
+}
+.head span{
+	font-size: 5.6vw;
+	color: #FFFFFF;
+	margin-left: 5vw;
+}
+
+.head a{
+	width: 4vw;
+	position: absolute;
+	right: 0;
+}
+.head a img{
+	width: 100%;
+}
+.content a{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 7.4vh;
+	box-sizing: border-box;
+	padding: 0 5%;
+	background-color: #FFFFFF;
+	border-bottom: 1px solid rgba(242, 242, 242, 1);
+}
+.content a .left{
+	width: 6vw;
+}
+.content a span{
+	flex: 1;
+	font-size: 3.6vw;
+	color: rgb(56, 56, 56);
+	margin-left: 4vw;
+}
+.content a div span{
+	margin-right: 4vw;
+	color: rgba(166, 166, 166, 1);
+}
+.content a .skip{
+	width: 3vw;
+	transform: rotate(180deg);
+	opacity: .3;
+}
+.interval{
+	margin-top: 3%;
+}
+.bottomImg{
+	display: block;
+	width: 88%;
+	margin: 2vh auto 0;
+}
+nav{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 7vh;
+	background-color: #FFFFFF;
+	padding: 0 10.6vw;
+	border-top: 1px solid rgb(217, 217, 217);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+nav a{
+	display: inline-block;
+	width: 4vw;
+	font-size: 2vw;
+	color: rgb(43, 76, 126);
+	text-align: center;
+}
+nav a img{
+	width: 100%;
+}
+nav a span{
+	white-space: nowrap;
+}
+.bottom1,.bottom4{
+	width: 5vw;
+}

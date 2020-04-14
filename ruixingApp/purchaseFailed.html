@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			header{
+				height: 6vh;
+				padding: 0 5vw;
+				border: 1px solid rgb(220, 220, 220);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: #FFFFFF;
+			}
+			header a{
+				display: inline-block;
+				width: 5vw;
+				position: absolute;
+			}
+			header a img{
+				width: 100%;
+			}
+			header h1{
+				flex: 1;
+				text-align: center;
+				font-size: 4vw;
+			}
+			.content{
+				margin: 7vh auto 0;
+				text-align: center;
+			}
+			.content img{
+				width: 26vw;
+			}
+			.content h2{
+				font-size: 8vw;
+				font-weight: normal;
+				margin-top: 6vh;
+			}
+			.content p{
+				font-size: 4vw;
+				margin: 4vh 0 6vh;
+				color: rgba(80, 80, 80, 1)
+			}
+			.content a{
+				display: block;
+				width: 40vw;
+				height: 5.5vh;
+				line-height: 5.5vh;
+				margin: 0 auto;
+				font-size: 3.5vw;
+				color: rgba(255, 255, 255, 1);
+				background-color: rgba(136, 175, 213, 1);
+				border-radius: 4px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="rechargeDiscounts.html"><img src="./img/close.svg" ></a>
+			<h1>购买失败</h1>
+		</header>
+		<div class="content">
+			<img src="./img/purchaseFailed.svg" >
+			<h2>购买失败</h2>
+			<p>非常抱歉，请再次尝试</p>
+			<a href="rechargeDiscounts.html">重试购买</a>
+		</div>
+	</body>
+</html>

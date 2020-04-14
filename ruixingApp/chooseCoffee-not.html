@@ -1,0 +1,529 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			body{
+				background-color: #FFFFFF;
+			}
+			.mui-slider{
+				top: 6vh;
+				background-color: #F1F1F1;
+			}
+			.mui-slider img{
+				height: 100%;
+			}
+			.content{
+				padding-top: 6vh;
+				display: flex;
+			}
+			.content .left {
+				width: 24%;
+			}
+			.content .left li{
+				height: 6vh;
+				line-height: 6vh;
+				box-sizing: border-box;
+				text-align: center;
+				font-size: 14px;
+				color: rgba(80, 80, 80, 1);
+				background-color: rgba(240, 240, 240, 1);
+				border-left: 2px solid transparent;
+				border-bottom: 1px solid rgba(230, 230, 230, 1);
+				position: relative;
+			}
+			.content .left li span{
+				padding: 0.2vh 0.4vw 0;
+				line-height: 1.4vh;
+				font-size: 2.6vw;
+				color: #FFFFFF;
+				position: absolute;
+				top: 0;
+				right: 0;
+				background-color: rgba(255, 129, 2, 1);
+			}
+			.content .left .active{
+				border-left-color: rgba(136, 175, 213, 1);
+				font-weight: bold;
+			}
+			.content .right{
+				width: 76%;
+				padding: 1.4vh;
+			}
+			.content .right ul{
+				width: 100%;
+			}
+			.content .right ul .p1{
+				font-weight: bold;
+				color: rgb(56, 56, 56);
+				position: relative;
+			}
+			.content .right ul .p1::after{
+				content: "";
+				display: block;
+				width: 76%;
+				height: 1px;
+				background-color: rgb(240,240,240);
+				position: absolute;
+				top: 1.2vh;
+				right: 0;
+			}
+			.content .right ul li{
+				display: flex;
+				justify-content: space-between;
+				padding-bottom: 2vh;
+				margin: 1vh 0;
+				border-bottom: 1px solid rgb(240,240,240);
+			}
+			.content .right ul li:first-of-type{
+				padding-bottom: 0;
+				border-bottom: 0;
+			}
+			.content .right ul li .img{
+				width: 18vw;
+				height: 18vw;
+				border-radius: 5px;
+				display: flex;
+				justify-content: center;
+				overflow: hidden;
+				position: relative;
+			}
+			.content .right ul li .img img{
+				height: 100%;
+			}
+			.content .right ul li .img span{
+				position: absolute;
+				bottom: 0.5vh;
+				right: 0;
+				display: block;
+				padding: 0 0.5vw;
+				height: 2vh;
+				line-height: 2.4vh;
+				border-radius: 2px;
+				color: #FFFFFF;
+				font-size: 2.4vw;
+				background-color: rgba(255, 129, 2, 1);
+			}
+			.content .right ul li .text{
+				flex: 1;
+				margin-left: 2vw;
+			}
+			.content .right ul li .text h3{
+				font-size: 14px;
+			}
+			.content .right ul li .text .detail{
+				font-size: 10px;
+				line-height: 120%;
+			}
+			.content .right ul li .text .price{
+				line-height: 0%;
+				color: rgba(56, 56, 56, 1);
+			}
+			.content .right ul li>img{
+				align-self: flex-end;
+				width: 6vw;
+			}
+			.content .right ul .p2{
+				margin: 3vh 0;
+				position: relative;
+			}
+			.content .right ul .p2 strong{
+				display: block;
+				color: rgb(56,56,56);
+				font-size: 3.6vw;
+				line-height: 100%;
+			}
+			.content .right ul .p2 span{
+				font-size: 2.8vw;
+			}
+			.content .right ul .p2::after{
+				content: "";
+				display: block;
+				width: 28%;
+				height: 1px;
+				background-color: rgb(240,240,240);
+				position: absolute;
+				top: 64%;
+				right: 0;
+			}
+			nav{
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 7vh;
+				background-color: #FFFFFF;
+				box-sizing: border-box;
+				padding: 0 10.6vw;
+				border-top: 1px solid rgb(217, 217, 217);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			nav a{
+				display: inline-block;
+				width: 4vw;
+				font-size: 2vw;
+				color: rgb(43, 76, 126);
+				text-align: center;
+			}
+			nav a img{
+				width: 100%;
+				margin-top: 5px;
+			}
+			nav a span{
+				float: left;
+				margin-top: -10px;
+				white-space: nowrap;
+			}
+			.bottom1,.bottom4{
+				width: 5vw;
+			}
+			.mask{
+				display: none;
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 998;
+				background-color: rgba(0,0,0,.4);
+			}
+			.popups{
+				width: 90%;
+				height: 80%;
+				background-color: #FFFFFF;
+				border-radius: 10px;
+				overflow: hidden;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+			}
+			.popups .top{
+				height: 28%;
+				background: url(img/popups1.jpg) no-repeat center /cover;
+				position: relative;
+			}
+			.popups .top .close{
+				width: 6vw;
+				position: absolute;
+				top: 2vw;
+				right: 2vw;
+			}
+			.popups .top h2{
+				font-size: 6vw;
+				color: #FFFFFF;
+				position: absolute;
+				top: 14vh;
+				left: 4vw;
+			}
+			.popups .top p{
+				color: #FFFFFF;
+				position: absolute;
+				top: 18vh;
+				left: 4vw;
+			}
+			.popups .choose{
+				margin: 4vw 0 0;
+				padding-left: 6vw;
+			}
+			.popups .choose dl{
+				height: 6vh;
+				line-height: 6vh;
+				color: rgba(56, 56, 56, 1);
+				font-size: 4vw;
+				display: flex;
+				align-items: flex-start;
+			}
+			.popups .choose dt{
+				width: 9vw;
+				line-height: 9vw;
+			}
+			.popups .choose dd{
+				margin-left: 4vw;
+				flex: 1;
+			}
+			.popups .choose dd div{
+				width: 20vw;
+				height: 8vw;
+				float: left;
+				margin-right: 3vw;
+				margin-bottom: 4vw;
+				line-height: 8.4vw;
+				text-align: center;
+				font-size: 3.6vw;
+				color: rgba(204, 192, 180, 1);
+				border: rgba(204, 192, 180, 1) solid 1px;
+				border-radius: 30px;
+			}
+			.popups .choose dd  .mask-active{
+				background-color: rgba(204, 192, 180, 1);
+				color: #FFFFFF;
+			}
+			.popups .choose .last{
+				margin-top: 12vw;
+			}
+			.popups .speak{
+				padding: 2vh 5vw 0;
+				border-top: 1px solid rgb(240,240,240);
+			}
+			.popups .speak h4{
+				font-weight: normal;
+				font-size: 3.4vw;
+			}
+			.popups .speak .maskHead{
+				float: left;
+				width: 8vw;
+				height: 8vw;
+				border-radius: 50%;
+				background: url(img/maskHeadimg.jpg) no-repeat center /cover;
+				width: 8vw;
+			}
+			.popups .speak p{
+				float: left;
+				margin: 0.6vh 0 0 2vw;
+				font-size: 3vw;
+			}
+			.popups .speak p i{
+				margin-left: 2vw;
+				font-style: normal;
+				padding: 0 2vw;
+				color: rgba(53, 60, 177, 1);
+				background-color: rgba(242, 242, 242, 1);
+				border-radius: 2px;
+				text-align: center;
+			}
+			.popups .speak span{
+				float: left;
+				margin-left: 2vw;
+				font-size: 3vw;
+				color: rgba(128, 128, 128, 1);
+			}
+			.popups .mask-bottom{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background-color: #FFFFFF;
+			}
+			.popups .mask-bottom>div{
+				height: 8vh;
+				border-top: 1px solid rgb(240,240,240);
+			}
+			.popups .mask-bottom .count{
+				padding: 0 5vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.popups .mask-bottom .count .count-text{
+				font-size: 4vw;
+			}
+			.popups .mask-bottom .count .count-text h4{
+				font-size: 5vw;
+				line-height: 20%;
+			}
+			.popups .mask-bottom .count .count-text p{
+				margin-bottom: 0;
+				font-size: 3vw;
+			}
+			.popups .mask-bottom .switch{
+				width: 18vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 3vw;
+				color: rgb(136,175,213);
+			}
+			.popups .mask-bottom .switch a{
+				display: inline-block;
+				width: 5vw;
+				height: 5vw;
+				line-height: 5vw;
+				border: 1px solid rgb(136,175,213);
+				border-radius: 50%;
+				text-align: center;
+				font-size: 5vw;
+				color: rgb(136,175,213);
+			}
+			.popups .mask-bottom .switch .disable{
+				opacity: .4;
+			}
+			.popups .mask-bottom .mask-btn{
+				display: flex;
+				align-items: center;
+				justify-content: space-evenly;
+			}
+			.popups .mask-bottom .mask-btn a{
+				display: block;
+				padding: 0 3vw;
+				height: 4vh;
+				box-sizing: border-box;
+				border-radius: 6px;
+				font-size: 3vw;
+				color: #FFFFFF;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.popups .mask-bottom .mask-btn a img{
+				width: 4vw;
+				margin-right: 1vw;
+			}
+			.popups .mask-bottom .mask-btn .a1{
+				background-color: rgba(255, 129, 2, 1);
+			}
+			.popups .mask-bottom .mask-btn .a2{
+				border: 1px solid rgba(136, 175, 213, 1);
+				color: rgba(136, 175, 213, 1);
+			}
+			.popups .mask-bottom .mask-btn .a3{
+				background-color: rgba(136, 175, 213, 1);
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">选择咖啡小食</h1>
+		</header>
+		<div class="mui-slider">
+			<div class="mui-slider-group mui-slider-loop">
+				<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="./img/chooseCoffee2.png" /></a></div>
+				<div class="mui-slider-item"><a href="#"><img src="./img/chooseCoffee1.jpg" /></a></div>
+				<div class="mui-slider-item"><a href="#"><img src="./img/chooseCoffee2.png" /></a></div>
+				<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="./img/chooseCoffee1.jpg" /></a></div>
+			</div>
+		</div>
+		<div class="content">
+			<ul class="left">
+				<li class="active">人气Top</li>
+				<li>大师咖啡</li>
+				<li>零度拿铁</li>
+				<li>瑞纳冰</li>
+				<li>经典饮品</li>
+				<li>健康轻食<span>66折优惠</span></li>
+				<li>鲜榨果蔬汁</li>
+			</ul>
+			<div class="right">
+				<ul>
+					<p class="p1">人气Top</p>
+					<li id="login">
+						<div class="img">
+							<img src="./img/coffee1.png" >
+							<span>充2赠1</span>
+						</div>
+						<div class="text">
+							<h3>榛果拿铁</h3>
+							<p class="detail">Hazlnut Latte <br/>默认：大/单糖/热</p>
+							<p class="price">¥ 27</p>
+						</div>
+						<img src="./img/add.svg" >
+					</li>
+					<p class="p2">
+						<strong>大师咖啡</strong>
+						<span>WBC（世界咖啡师大赛）冠军团队拼配</span>
+					</p>
+					<li>
+						<div class="img">
+							<img src="./img/coffee1.png" >
+							<span>充2赠1</span>
+						</div>
+						<div class="text">
+							<h3>拿铁</h3>
+							<p class="detail">Hazlnut Latte <br/>默认：大/单糖/热</p>
+							<p class="price">¥ 27</p>
+						</div>
+						<img src="./img/add.svg" >
+					</li>
+					<li>
+						<div class="img">
+							<img src="./img/coffee1.png" >
+							<span>充2赠1</span>
+						</div>
+						<div class="text">
+							<h3>香草拿铁</h3>
+							<p class="detail">Hazlnut Latte <br/>默认：大/单糖/热</p>
+							<p class="price">¥ 27</p>
+						</div>
+						<img src="./img/add.svg" >
+					</li>
+					<li>
+						<div class="img">
+							<img src="./img/coffee1.png" >
+							<span>充2赠1</span>
+						</div>
+						<div class="text">
+							<h3>焦糖拿铁</h3>
+							<p class="detail">Hazlnut Latte <br/>默认：大/单糖/热</p>
+							<p class="price">¥ 27</p>
+						</div>
+						<img src="./img/add.svg" >
+					</li>
+					<li>
+						<div class="img">
+							<img src="./img/coffee1.png" >
+							<span>充2赠1</span>
+						</div>
+						<div class="text">
+							<h3>焦糖拿铁</h3>
+							<p class="detail">Hazlnut Latte <br/>默认：大/单糖/热</p>
+							<p class="price">¥ 27</p>
+						</div>
+						<img src="./img/add.svg" >
+					</li>
+				</ul>
+			</div>
+		</div>
+		<nav>
+			<a href="index-not.html" class="bottom1">
+				<img src="./img/bottomNav1.png">
+				<span>首页</span>
+			</a>
+			<a href="chooseCoffee-not.html" class="bottom2">
+				<img src="./img/bottomNav2-1.svg">
+				<span>菜单</span>
+			</a>
+			<a href="loginMethod.html" class="bottom3">
+				<img src="./img/bottomNav3.svg">
+				<span>订单</span>
+			</a>
+			<a href="shopCar-not.html" class="bottom4">
+				<img src="./img/bottomNav4.svg">
+				<span>购物车</span>
+			</a>
+			<a href="my-not.html" class="bottom5">
+				<img src="./img/bottomNav5.svg">
+				<span>我的</span>
+			</a>
+		</nav>
+		</div>
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+			  interval:3000//自动轮播周期，若为0则不自动播放，默认为0；
+			});
+			
+			document.addEventListener('plusready', function(){
+				document.getElementById('login').onclick = showAlert
+			});
+			// 弹出系统提示对话框
+			function showAlert(){
+				plus.nativeUI.alert("您未登录，请登录后再操作！", function(){
+					plus.webview.open('phoneCodeLogin.html','',{},'slide-in-right');
+				}, "", "确认");
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,26 @@
+[
+	{
+		"id":1,
+		"username":"赵中",
+		"phone":"13257323077",
+		"password":"123456",
+		"address":[
+			{
+				"location":"杭州市下城区费家塘路588号11幢",
+				"remark":"公司"
+			}
+		]
+	},
+	{
+		"id":1,
+		"username":"zz",
+		"phone":"13077302338",
+		"password":"666666",
+		"address":[
+			{
+				"location":"杭州市下城区费家塘路588号11幢",
+				"remark":"公司"
+			}
+		]
+	}
+]

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+	<script src="js/mui.min.js"></script>
+	<link href="css/mui.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="./css/public.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/index.css"/>
+</head>
+<body>
+	<header>
+		<div class="mui-slider">
+		  <div class="mui-slider-group mui-slider-loop">
+		    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="./img/banner3.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="./img/banner1.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="./img/banner2.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="./img/banner3.jpg" /></a></div>
+		    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="./img/banner1.jpg" /></a></div>
+		  </div>
+		</div>
+		<div class="pages">
+			<span class="page-active"></span>
+			<span></span>
+			<span></span>
+		</div>
+		<a href="loginMethod.html"><i></i></a>
+	</header>
+	<div class="wrapper">
+		<div class="wrapper-left">
+			<p>青年汇店</p>
+			距您53m
+		</div>
+		<div class="wrapper-right">
+			<a class="active" href="javascript:;">自提</a>
+			<a href="javascript:;">外送</a>
+		</div>
+	</div>
+	<div class="content">
+		<a class="li" href="javascript:;">
+			<div class="index-li-text">
+				<p>现在下单</p>
+				ORDER NOW
+			</div>
+			<span class="index-li-img"></span>
+		</a>
+		<a class="li" href="javascript:;">
+			<div class="index-li-text">
+				<p>咖啡钱包</p>
+				COFFRR WALLET
+			</div>
+			<span class="index-li-img img2"></span>
+		</a>
+		<a class="li" href="javascript:;">
+			<div class="index-li-text">
+				<p>送Ta咖啡</p>
+				SEND COFFEE
+			</div>
+			<span class="index-li-img img3"></span>
+		</a>
+		<a class="li" href="javascript:;">
+			<div class="index-li-text">
+				<p>企业账户</p>
+				ENTERPRISE ACCOUNT
+			</div>
+			<span class="index-li-img img4"></span>
+		</a>
+	</div>
+	<a class="bottom-img" href="javascript:;"><img src="./img/bottom.png"></a>
+	<nav>
+		<a href="index-not.html" class="bottom1">
+			<img src="./img/bottomNav1-1.png">
+			<span>首页</span>
+		</a>
+		<a href="chooseCoffee-not.html" class="bottom2">
+			<img src="./img/bottomNav2.svg">
+			<span>菜单</span>
+		</a>
+		<a href="loginMethod.html" class="bottom3">
+			<img src="./img/bottomNav3.svg">
+			<span>订单</span>
+		</a>
+		<a href="shopCar-not.html" class="bottom4">
+			<img src="./img/bottomNav4.svg">
+			<span>购物车</span>
+		</a>
+		<a href="my-not.html" class="bottom5">
+			<img src="./img/bottomNav5.svg">
+			<span>我的</span>
+		</a>
+	</nav>
+	<script type="text/javascript">
+		var gallery = mui('.mui-slider');
+		gallery.slider({
+		  interval:3000//自动轮播周期，若为0则不自动播放，默认为0；
+		});
+		document.querySelector('.mui-slider').addEventListener('slide', function(event) {
+		  var page = document.querySelectorAll('.pages span')
+		  for(var i = 0; i < page.length; i++){
+			  page[i].classList.remove('page-active')
+		  }
+		  page[event.detail.slideNumber].classList.add('page-active')
+		});
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			body{
+				background-color: #F5F5F5;
+			}
+			header{
+				height: 6vh;
+				padding: 0 5vw;
+				background-color: #FFFFFF;
+				line-height: 6vh;
+				font-size: 4.4vw;
+				font-weight: bold;
+				text-align: center;
+				border-bottom: 1px solid rgb(240,240,240);
+			}
+			.nav{
+				height: 6vh;
+				background-color: #FFFFFF;
+				display: flex;
+			}
+			.nav>a{
+				display: block;
+				width: 33.3%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				color: rgba(56, 56, 56, 1);
+				font-size: 3.4vw;
+				position: relative;
+			}
+			.nav>a span{
+				color: rgba(166, 166, 166, 1);
+				font-size: 2.6vw;
+			}
+			.nav .active{
+				color: rgba(136, 175, 213, 1);
+				font-weight: bold;
+			}
+			.nav .active::after{
+				content: "";
+				display: block;
+				height: 2px;
+				width: 10vw;
+				background-color: rgba(136, 175, 213, 1);
+				position: absolute;
+				bottom: 0;
+			}
+			.content{
+				height: 81vh;
+				overflow: scroll;
+			}
+			.content li{
+				margin-top: 2vh;
+				padding: 0 5vw;
+				height: 24vh;
+				background-color: #FFFFFF;
+			}
+			.content li .title{
+				height: 6vh;
+				line-height: 6.4vh;
+				font-size: 3.2vw;
+				border-bottom: 1px solid rgb(240,240,240);
+				display: flex;
+				justify-content: space-between;
+				color: rgba(166, 166, 166, 1);
+			}
+			.content li .title .textblue{
+				color: rgba(136, 175, 213, 1);
+			}
+			.content li h3{
+				font-size: 3.6vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin: 3vh 0 1vh;
+			}
+			.content li h3 span{
+				font-weight: normal;
+				color: rgba(166, 166, 166, 1);
+			}
+			.content li .text{
+				font-size: 3.2vw;
+				color: rgba(80, 80, 80, 1);
+			}
+			.content li>div{
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-top: 3.6vh;
+			}
+			.content li>div span{
+				color: rgba(56, 56, 56, 1);
+				font-size: 4.4vw;
+			}
+			.content li>div div{
+				display: flex;
+			}
+			.content li>div div a{
+				display: block;
+				margin-left: 2vw;
+				width: 19vw;
+				height: 3.4vh;
+				color: rgba(56, 56, 56, 1);
+				border: rgba(242, 242, 242, 1) solid 1px;
+				border-radius: 6px;
+				font-size: 3.4vw;
+				line-height: 3.8vh;
+				text-align: center;
+			}
+			.content li>div .a-orange{
+				color: rgba(255, 129, 2, 1);
+				border: rgba(255, 129, 2, 1) solid 1px;
+			}
+			.content li>div .a-blue{
+				color: rgba(144, 192, 239, 1);
+				border: rgba(144, 192, 239, 1) solid 1px;
+			}
+			nav{
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 7vh;
+				background-color: #FFFFFF;
+				padding: 0 10.6vw;
+				border-top: 1px solid rgb(217, 217, 217);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			nav a{
+				display: inline-block;
+				width: 4vw;
+				font-size: 2vw;
+				color: rgb(43, 76, 126);
+				text-align: center;
+			}
+			nav a img{
+				width: 100%;
+			}
+			nav a span{
+				white-space: nowrap;
+			}
+			.bottom1,.bottom4{
+				width: 5vw;
+			}
+		</style>
+	</head>
+	<body>
+		<header>订单列表</header>
+		<div class="nav">
+			<a class="active" href="orderList1.html">
+				<p>全部</p>
+			</a>
+			<a href="orderList2.html">
+				<p>未完成</p>
+			</a>
+			<a href="orderList3.html">
+				<p>已完成</p>
+			</a>
+		</div>
+		<ul class="content">
+			<li>
+				<p class="title">外卖订单：23847563928174<span class="textblue">待付款</span></p>
+				<h3>北京市朝阳区青年汇佳园10号...<span>2019-01-08 09:05</span></h3>
+				<p class="text">榛果拿铁等 共1件商品</p>
+				<div>
+					<span>¥12</span>
+					<div>
+						<a class="a-orange" href="payCenter.html">去支付</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<p class="title">外卖订单：23847563928174<span>已取消</span></p>
+				<h3>北京市朝阳区青年汇佳园10号...<span>2019-01-08 09:05</span></h3>
+				<p class="text">榛果拿铁等 共1件商品</p>
+				<div>
+					<span>¥12</span>
+					<div>
+						<a href="javascript:;">再来一单</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<p class="title">外卖订单：23847563928174<span>已完成</span></p>
+				<h3>北京市朝阳区青年汇佳园10号...<span>2019-01-08 09:05</span></h3>
+				<p class="text">榛果拿铁等 共1件商品</p>
+				<div>
+					<span>¥12</span>
+					<div>
+						<a href="javascript:;">再来一单</a>
+						<a class="a-blue" href="toEvaluate.html">去评价</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<p class="title">外卖订单：23847563928174<span>已完成</span></p>
+				<h3>北京市朝阳区青年汇佳园10号...<span>2019-01-08 09:05</span></h3>
+				<p class="text">榛果拿铁等 共1件商品</p>
+				<div>
+					<span>¥12</span>
+					<div>
+						<a href="javascript:;">再来一单</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<p class="title">外卖订单：23847563928174<span>已完成</span></p>
+				<h3>北京市朝阳区青年汇佳园10号...<span>2019-01-08 09:05</span></h3>
+				<p class="text">榛果拿铁等 共1件商品</p>
+				<div>
+					<span>¥12</span>
+					<div>
+						<a href="javascript:;">再来一单</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<p class="title">外卖订单：23847563928174<span>已完成</span></p>
+				<h3>北京市朝阳区青年汇佳园10号...<span>2019-01-08 09:05</span></h3>
+				<p class="text">榛果拿铁等 共1件商品</p>
+				<div>
+					<span>¥12</span>
+					<div>
+						<a href="javascript:;">再来一单</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<p class="title">外卖订单：23847563928174<span>已完成</span></p>
+				<h3>北京市朝阳区青年汇佳园10号...<span>2019-01-08 09:05</span></h3>
+				<p class="text">榛果拿铁等 共1件商品</p>
+				<div>
+					<span>¥12</span>
+					<div>
+						<a href="javascript:;">再来一单</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<nav>
+			<a href="index.html" class="bottom1">
+				<img src="./img/bottomNav1.png">
+				<span>首页</span>
+			</a>
+			<a href="chooseCoffee.html" class="bottom2">
+				<img src="./img/bottomNav2.svg">
+				<span>菜单</span>
+			</a>
+			<a href="orderList1.html" class="bottom3">
+				<img src="./img/bottomNav3-1.svg">
+				<span>订单</span>
+			</a>
+			<a href="shopCar.html" class="bottom4">
+				<img src="./img/bottomNav4.svg">
+				<span>购物车</span>
+			</a>
+			<a href="my.html" class="bottom5">
+				<img src="./img/bottomNav5.svg">
+				<span>我的</span>
+			</a>
+		</nav>
+	</body>
+</html>

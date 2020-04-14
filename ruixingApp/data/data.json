@@ -1,0 +1,105 @@
+{
+	"brand":[
+		{
+			"title":"人气Top",
+			"discounts":"",
+			"product":[
+				{
+					"name":"榛果拿铁",
+					"enName":"Hazlnut Latte",
+					"option":"大/单糖/热",
+					"price":27,
+					"imgUrl":"./img/coffee1.png",
+					"discounts":"充2赠1"
+				}
+			]
+		},
+		{
+			"title":"大师咖啡",
+			"discounts":"",
+			"product":[
+				{
+					"name":"拿铁",
+					"enName":"Latte",
+					"option":"大/单糖/热",
+					"price":24,
+					"imgUrl":"./img/coffee1.png",
+					"discounts":"充2赠1"
+				},
+				{
+					"name":"香草拿铁",
+					"enName":"Vanilla Latte",
+					"option":"大/单糖/热",
+					"price":27,
+					"imgUrl":"./img/coffee1.png",
+					"discounts":"充2赠1"
+				},
+				{
+					"name":"焦糖拿铁",
+					"enName":"Caramel Latte",
+					"option":"大/单糖/热",
+					"price":27,
+					"imgUrl":"./img/coffee1.png",
+					"discounts":"充2赠1"
+				},
+				{
+					"name":"焦糖拿铁",
+					"enName":"Caramel Latte",
+					"option":"大/单糖/热",
+					"price":27,
+					"imgUrl":"./img/coffee1.png",
+					"discounts":"充2赠1"
+				},
+				{
+					"name":"焦糖拿铁",
+					"enName":"Caramel Latte",
+					"option":"大/单糖/热",
+					"price":27,
+					"imgUrl":"./img/coffee1.png",
+					"discounts":"充2赠1"
+				},
+				{
+					"name":"焦糖拿铁",
+					"enName":"Caramel Latte",
+					"option":"大/单糖/热",
+					"price":27,
+					"imgUrl":"./img/coffee1.png",
+					"discounts":"充2赠1"
+				},
+				{
+					"name":"焦糖拿铁",
+					"enName":"Caramel Latte",
+					"option":"大/单糖/热",
+					"price":27,
+					"imgUrl":"./img/coffee1.png",
+					"discounts":"充2赠1"
+				}
+			]
+		},
+		{
+			"title":"零度拿铁",
+			"discounts":"",
+			"product":[]
+		},
+		{
+			"title":"瑞纳冰",
+			"discounts":"",
+			"product":[]
+		},
+		{
+			"title":"经典饮品",
+			"discounts":"",
+			"product":[]
+		},
+		{
+			"title":"健康轻食",
+			"discounts":"66折优惠",
+			"product":[]
+		},
+		{
+			"title":"鲜榨果蔬汁",
+			"discounts":"",
+			"product":[]
+		}
+	]
+}

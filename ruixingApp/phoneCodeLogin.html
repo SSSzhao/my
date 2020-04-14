@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./css/public.css"/>
+		<style type="text/css">
+			header{
+				height: 44px;
+				display: flex;
+				align-items: center;
+			}
+			header a{
+				display: inline-block;
+				width: 4vw;
+				margin-left: 5vw;
+			}
+			header a img{
+				width: 100%;
+			}
+			.logo{
+				display: block;
+				margin: 70px auto 52px;
+				width: 21vw;
+			}
+			.box{
+				width: 80%;
+				margin: 0 auto;
+				font-size: 3vw;
+				color: rgba(166, 166, 166, 1);
+			}
+			.box div{
+				height: 60px;
+				line-height: 70px;
+				border-bottom: 1px solid rgba(230, 230, 230, 1);
+			}
+			.box div input{
+				margin-left: 2vw;
+				outline: none;
+				border: 0;
+				color: #333;
+			}
+			.box div input::placeholder{
+				color:rgba(166, 166, 166, 1);
+			}
+			.box .choose span{
+				color: rgba(56, 56, 56, 1);
+				margin-left: 2vw;
+			}
+			.box .choose a{
+				display: inline-block;
+				width: 3vw;
+				float: right;
+			}
+			.box .choose a img{
+				width: 100%;
+				transform: rotate(180deg);
+				vertical-align: middle;
+				opacity: .3;
+			}
+			.btn{
+				display: block;
+				width: 80vw;
+				height: 38px;
+				box-sizing: border-box;
+				border-radius: 4px;
+				line-height: 40px;
+				text-align: center;
+				color: #fff;
+				font-size: 4vw;
+				margin: 6% auto 4%;
+				background-color: rgba(136, 175, 213, 0.6);
+			}
+			p{
+				font-size: 2.5vw;
+				text-align: center;
+			}
+			p a{
+				color: rgba(85, 122, 157, 1);
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="loginMethod.html"><img src="./img/quit.svg" ></a>
+		</header>
+		<img class="logo" src="./img/loginlogo.png" >
+		<div class="box">
+			<!-- <div class="choose">
+				选择国家/地区<span>中国（+86）</span>
+				<a href="choosePhoneCode.html"><img src="./img/quit.svg" ></a>
+			</div> -->
+			<div>
+				<input type="text" id="username" placeholder="请输入手机号"/>
+			</div>
+			<div>
+				<input type="password" id="password" placeholder="请输入密码"/>
+			</div>
+			<a class="btn" href="javascript:;">确定</a>
+			<p>点击确定，即表示以阅读并同意<a href="userAgreement.html">《注册会员服务条款》</a></p>
+		</div>
+		<script>
+			document.addEventListener('plusready', function(){
+				$('.btn').click(function() {
+					$.get({
+						url: 'data/user.json',
+						dataType:'json',
+						success: function(res) {
+							var flag = false;
+							var data = null;
+							$(res).each(function(index,value) {
+								if($('#username').val() === value.phone && $('#password').val() === value.password){
+									flag = true;
+									data = value;
+								}
+							})
+							if(flag){ 
+								plus.webview.open('chooseCoffee.html','',{},'slide-in-left');
+								plus.nativeUI.toast("登录成功!");
+								var json = JSON.stringify(data);
+								localStorage.setItem('user',json);
+							}else{
+								plus.nativeUI.alert("账号或密码错误，请重新输入", function(){
+									$('#password').val('');
+								}, "", "确认");
+							}
+						}
+					})
+				})
+			})
+		</script>
+	</body>
+</html>

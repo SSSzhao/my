@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+	<script src="js/mui.min.js"></script>
+	<link href="css/mui.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="./css/public.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/index.css"/>
+</head>
+<body>
+	<header>
+		<div class="mui-slider">
+		  <div class="mui-slider-group mui-slider-loop">
+		    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="./img/banner3.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="./img/banner1.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="./img/banner2.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="./img/banner3.jpg" /></a></div>
+		    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="./img/banner1.jpg" /></a></div>
+		  </div>
+		</div>
+		<div class="pages">
+			<span class="page-active"></span>
+			<span></span>
+			<span></span>
+		</div>
+		<i class="headerSao"></i>
+	</header>
+	<div class="wrapper">
+		<div class="wrapper-left">
+			<p>青年汇店</p>
+			距您53m
+		</div>
+		<div class="wrapper-right">
+			<a class="active" href="javascript:;">自提</a>
+			<a href="javascript:;">外送</a>
+		</div>
+	</div>
+	<div class="content">
+		<a class="li" href="chooseCoffee.html">
+			<div class="index-li-text">
+				<p>现在下单</p>
+				ORDER NOW
+			</div>
+			<span class="index-li-img"></span>
+		</a>
+		<a class="li" href="coffeeWallet.html">
+			<div class="index-li-text">
+				<p>咖啡钱包</p>
+				COFFRR WALLET
+			</div>
+			<span class="index-li-img img2"></span>
+		</a>
+		<a class="li" href="javascript:;">
+			<div class="index-li-text">
+				<p>送Ta咖啡</p>
+				SEND COFFEE
+			</div>
+			<span class="index-li-img img3"></span>
+		</a>
+		<a class="li" href="javascript:;">
+			<div class="index-li-text">
+				<p>企业账户</p>
+				ENTERPRISE ACCOUNT
+			</div>
+			<span class="index-li-img img4"></span>
+		</a>
+	</div>
+	<a class="bottom-img" href="javascript:;"><img src="./img/bottom.png"></a>
+	<nav>
+		<a href="index.html" class="bottom1">
+			<img src="./img/bottomNav1-1.png">
+			<span>首页</span>
+		</a>
+		<a href="chooseCoffee.html" class="bottom2">
+			<img src="./img/bottomNav2.svg">
+			<span>菜单</span>
+		</a>
+		<a href="orderList1.html" class="bottom3">
+			<img src="./img/bottomNav3.svg">
+			<span>订单</span>
+		</a>
+		<a href="shopCar.html" class="bottom4">
+			<img src="./img/bottomNav4.svg">
+			<span>购物车</span>
+		</a>
+		<a href="my.html" class="bottom5">
+			<img src="./img/bottomNav5.svg">
+			<span>我的</span>
+		</a>
+	</nav>
+	<script type="text/javascript">
+		// 轮播图
+		var gallery = mui('.mui-slider');
+		gallery.slider({
+		  interval:3000
+		});
+		document.querySelector('.mui-slider').addEventListener('slide', function(event) {
+		  var page = document.querySelectorAll('.pages span')
+		  for(var i = 0; i < page.length; i++){
+			  page[i].classList.remove('page-active')
+		  }
+		  page[event.detail.slideNumber].classList.add('page-active')
+		});
+		
+		// 返回
+		var clickNum = 0
+		mui.back = function(event){
+			// clickNum++;
+			// if(clickNum > 1) {
+			// 	plus.runtime.quit();
+			// } else {
+			// 	mui.toast("再按一次退出应用");
+			// }
+			// setTimeout(function() {
+			// 	clickNum = 0
+			// }, 2000);
+			return false;
+		}
+		// 扫码
+		document.addEventListener('plusready', function(){
+			var barcode = null;
+			var sao = document.getElementsByClassName('headerSao')[0]
+			sao.onclick = createBarcode
+			function createBarcode() {
+				if(!barcode){
+					barcode = plus.barcode.create('barcode', [plus.barcode.QR], {
+						width: '100%',
+						height: '100%',
+					});
+					barcode.onmarked = function(type, result){
+						console.log('Success: type='+type+', result='+result);
+					};
+					plus.webview.currentWebview().append(barcode);
+					barcode.start();
+					plus.key.addEventListener('backbutton', function() {
+						barcode && barcode.close()
+						barcode && (barcode.cancel(),barcode=null)
+					},false)
+				}
+			}
+		})
+		
+	</script>
+</body>
+</html>

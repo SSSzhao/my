@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			body{
+				background-color: #f5f5f5;
+			}
+			header{
+				height: 6vh;
+				display: flex;
+				align-items: center;
+			}
+			header a{
+				display: inline-block;
+				width: 4vw;
+				margin-left: 5vw;
+				font-size: 3.5vw;
+				white-space: nowrap;
+				color: rgb(56,56,56);
+			}
+			header h1{
+				width: 82%;
+				text-align: center;
+				font-size: 4vw;
+			}
+			div{
+				height: 16vh;
+				box-sizing: border-box;
+				background-color: #FFFFFF;
+				text-align: center;
+				padding-top: 3vh;
+				border-bottom: 1px solid rgb(220, 220, 220);
+			}
+			div h2{
+				font-size: 5vw;
+			}
+			div p{
+				font-size: 10vw;
+				margin-top: 1vh;
+			}
+			.p1{
+				height: 8vh;
+				background-color: #FFFFFF;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 0 5vw;
+				font-size: 3.8vw;
+			}
+			.p1 span:first-child{
+				color: rgb(128,128,128);
+			}
+			.btn{
+				display: block;
+				width: 90%;
+				height: 6vh;
+				line-height: 6vh;
+				margin: 4vh auto;
+				font-size: 5vw;
+				color: rgba(255, 255, 255, 1);
+				background-color: rgba(73, 194, 101, 1);
+				border-radius: 4px;
+				text-align: center;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="cancelOrder.html">取消</a>
+			<h1>确认订单</h1>
+		</header>
+		<div>
+			<h2>订单付款</h2>
+			<p class="price">¥6.00</p>
+		</div>
+		<p class="p1">
+			<span>收款方</span>
+			<span>luckincoffe瑞幸咖啡</span>
+		</p>
+		<a class="btn" href="javascript:;">立即支付</a>
+	</body>
+	<script>
+		$('.price').text('¥'+localStorage.getItem('useCouponPrice'))
+		$('.btn').click(function() {
+			plus.webview.open('payFinish.html','',{},'slide-in-right')
+		})
+	</script>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			header{
+				height: 6vh;
+				padding: 0 5vw;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background-color: #FFFFFF;
+				border-bottom: 1px solid rgb(240,240,240);
+			}
+			header a{
+				display: inline-block;
+				width: 4vw;
+				position: absolute;
+			}
+			header a img{
+				width: 100%;
+			}
+			header h1{
+				flex: 1;
+				text-align: center;
+				font-size: 4vw;
+			}
+			.content {
+				padding-left: 5vw;
+			}
+			.content .list{
+				height: 13.5vh;
+				box-sizing: border-box;
+				padding-top: 4vh;
+				border-bottom: 1px solid rgb(240,240,240);
+				font-size: 4vw;
+				color: rgb(56,56,56);
+			}
+			.content .list p{
+				margin-bottom: 1.2vh;
+			}
+			.content .list a{
+				display: inline-block;
+				width: 18vw;
+				height: 3.6vh;
+				margin-right: 3vw;
+				line-height: 4vh;
+				text-align: center;
+				border-radius: 30px;
+				color: rgba(128, 128, 128, 1);
+				border: 1px solid rgba(128, 128, 128, 1);
+			}
+			.content .list:nth-of-type(3){
+				border: 0;
+			}
+			.content .list .active{
+				color: rgba(136, 175, 213, 1);
+				border: 1px solid rgba(136, 175, 213, 1);
+				background-color: rgba(136, 175, 213, 0.1);
+			}
+			.content .area{
+				margin-top: 5vh;
+				width: 94%;
+				height: 16vh;
+				box-sizing: border-box;
+				padding: 1vh 2vw;
+				background-color: #F1F1F1;
+				border-radius: 4px;
+				font-size: 3.2vw;
+				color: rgba(166, 166, 166, 1);
+				position: relative;
+			}
+			.content .area span{
+				position: absolute;
+				right: 2vw;
+				bottom: 1vh;
+				color: rgba(80, 80, 80, 1);
+			}
+			.btn{
+				display: block;
+				width: 94%;
+				height: 4.4vh;
+				margin-top: 2vh;
+				line-height: 4.8vh;
+				text-align: center;
+				color: rgba(255, 255, 255, 1);
+				background-color: rgba(144, 192, 239, 1);
+				border-radius: 6px;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="shopConfirmOrder.html"><img src="./img/quit.svg" ></a>
+			<h1>订单备注</h1>
+		</header>
+		<div class="content">
+			<div class="list">
+				<p>纸巾</p>
+				<a class="active" href="javascript:;">不需要</a>
+				<a href="javascript:;">需要</a>
+			</div>
+			<div class="list">
+				<p>奶包</p>
+				<a class="active" href="javascript:;">不需要</a>
+				<a href="javascript:;">需要</a>
+			</div>
+			<div class="list">
+				<p>糖包</p>
+				<a class="active" href="javascript:;">不需要</a>
+				<a href="javascript:;">需要</a>
+			</div>
+			<div class="area">
+				<p>输入备注内容(口味备注不在此处留言)</p>
+				<span>0/30</span>
+			</div>
+			<a class="btn" href="shopConfirmOrder.html">确定</a>
+		</div>
+		
+	</body>
+</html>

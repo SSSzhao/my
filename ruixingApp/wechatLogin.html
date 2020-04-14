@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style type="text/css">
+			header{
+				height: 6vh;
+				line-height: 6vh;
+				background-color: #f5f5f5;
+				padding: 0 5vw;
+				font-size: 3.5vw;
+			}
+			header a{
+				color: rgba(56, 56, 56, 1);
+			}
+			.logo{
+				display: block;
+				margin: 14% auto 3%;
+				width: 15vw;
+			}
+			p{
+				width: 85%;
+				margin: 0 auto
+			}
+			.underLogo{
+				margin-bottom: 3vh;
+				border-bottom: 1px solid rgba(242, 242, 242, 1);
+				padding-bottom: 4vh;
+				text-align: center;
+				font-size: 5vw;
+			}
+			.afterLogin{
+				font-size: 4vw;
+			}
+			.info{
+				width: 70%;
+				font-size: 4vw;
+				color: rgba(128, 128, 128, 1);
+				line-height: 4vh;
+				margin: 2vh auto 8vh;
+				position: relative;
+			}
+			.info::after{
+				content: "";
+				display: block;
+				width: 1vw;
+				height: 1vw;
+				background-color: rgba(153, 153, 153, 1);
+				border-radius: 50%;
+				position: absolute;
+				left: -6%;
+				top: 20%;
+			}
+			.login{
+				display: block;
+				width: 80vw;
+				height: 5vh;
+				box-sizing: border-box;
+				border-radius: 4px;
+				line-height: 5vh;
+				text-align: center;
+				color: #fff;
+				font-size: 4vw;
+				margin: 6% auto 4%;
+				background-color: rgba(73, 194, 101, 1)
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<a href="loginMethod.html">取消</a>
+		</header>
+		<img class="logo" src="./img/loginlogo.png" >
+		<p class="underLogo">luckin coffee</p>
+		<p class="afterLogin">登录后开发者将获得以下权限</p>
+		<p class="info">获得你的公开信息（昵称、头像、地区等）</p>
+		<a class="login" href="bindingPhone.html">确认登录</a>
+	</body>
+</html>
